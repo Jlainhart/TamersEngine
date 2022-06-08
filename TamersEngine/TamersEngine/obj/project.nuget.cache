@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "azef5B/u/CbSG4vs2ThVK0vaGzhkVPCIr8pVr4Ry2eYC5g1wSBUX0k/YQyKQQ91YIlRDc7Rw+A+gv7mY1bhtGA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jedad\\Documents\\Tamer United\\Code\\TamersEngine\\TamersEngine\\TamersEngine.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jedad\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,16 @@
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\bin\Debug\net5.0\TamersEngine.exe
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\bin\Debug\net5.0\TamersEngine.deps.json
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\bin\Debug\net5.0\TamersEngine.runtimeconfig.json
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\bin\Debug\net5.0\TamersEngine.runtimeconfig.dev.json
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\bin\Debug\net5.0\TamersEngine.dll
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\bin\Debug\net5.0\ref\TamersEngine.dll
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\bin\Debug\net5.0\TamersEngine.pdb
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\obj\Debug\net5.0\TamersEngine.csproj.AssemblyReference.cache
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\obj\Debug\net5.0\TamersEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\obj\Debug\net5.0\TamersEngine.AssemblyInfoInputs.cache
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\obj\Debug\net5.0\TamersEngine.AssemblyInfo.cs
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\obj\Debug\net5.0\TamersEngine.csproj.CoreCompileInputs.cache
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\obj\Debug\net5.0\TamersEngine.dll
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\obj\Debug\net5.0\ref\TamersEngine.dll
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\obj\Debug\net5.0\TamersEngine.pdb
+C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\TamersEngine\obj\Debug\net5.0\TamersEngine.genruntimeconfig.cache
