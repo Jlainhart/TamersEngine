@@ -6,17 +6,13 @@ using System.Threading;
 using System.Collections;
 using System.Timers;
 using TamersStats;
+using Value;
 
 namespace TamersEngine
 {
 
     public class Engine
     {
-        public static string userName { get; set; }
-        public static string per { get; set; }
-        public static string digiName { get; set; }
-        public static bool digiDeath { get; set; }
-
         static void Main()
         {
             // intro fill in info
@@ -24,25 +20,25 @@ namespace TamersEngine
 
                 Console.WriteLine("Enter UserName:");
 
-                userName = Console.ReadLine();
+                Values.userName = Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine($"{userName}, Iv been waiting for you.");
+                Console.WriteLine($"{Values.userName}, Iv been waiting for you.");
 
                 Thread.Sleep(2000);
 
-            digiDeath = true;
-            while (digiDeath)
+            Values.digiDeath = true;
+            while (Values.digiDeath)
             {
                 Console.Clear();
 
                 EggStats.StatPer();
                 Images.Egg();
                 Thread.Sleep(2000);
-
+                Console.Clear();
                 Images.Hatch();
                 Thread.Sleep(2000);
 
-                digiDeath = false;
+                Values.digiDeath = false;
             }
 
 
@@ -141,9 +137,9 @@ namespace TamersEngine
             Console.Clear();
             Console.WriteLine("Stats");
 
-            Console.WriteLine($"UserName: {userName}");
-            Console.WriteLine($"DigiName: {digiName}");
-            Console.WriteLine($"\nDigi: {digi}  Level: {lvl}  Health: {hp} Mental: {mp}\nAttack: {atk}  Defense: {def}  Intellagence: {intel}  Speed: {spd}\nType: {type} Attribute: {attribute}  Species: {species}  Personality:{per} \nEnergy: {energy}  Vitality: {sick}  Experiance: {exp}  Mood: {mood}\nTired: {tired}  Sleep: {sleep}  Hunger: {hunger}  Poop: {poop}  Age: {age}");
+            Console.WriteLine($"UserName: {Values.userName}");
+            Console.WriteLine($"DigiName: {Values.digiName}");
+            Console.WriteLine($"\nDigi: {Values.digi}  Level: {Values.lvl}  Health: {Values.hp} Mental: {Values.mp}\nAttack: {Values.atk}  Defense: {Values.def}  Intellagence: {Values.intel}  Speed: {Values.spd}\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality:{Values.per} \nEnergy: {Values.energy}  Vitality: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.hunger}  Poop: {Values.poop}  Age: {Values.age}");
 
             Console.WriteLine("\nPress Enter to return");
             Console.ReadLine();
