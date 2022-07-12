@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TamersEngine", "TamersEngine\TamersEngine.csproj", "{3F1EFFF1-C41E-495B-9851-89ABBA1144CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TamersEngine", "TamersEngine\TamersEngine.csproj", "{3F1EFFF1-C41E-495B-9851-89ABBA1144CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
