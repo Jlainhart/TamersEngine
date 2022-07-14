@@ -1,5 +1,0 @@
-C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\Digimon\obj\Debug\net5.0\Digimon.csproj.AssemblyReference.cache
-C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\Digimon\obj\Debug\net5.0\Digimon.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\Digimon\obj\Debug\net5.0\Digimon.AssemblyInfoInputs.cache
-C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\Digimon\obj\Debug\net5.0\Digimon.AssemblyInfo.cs
-C:\Users\jedad\Documents\Tamer United\Code\TamersEngine\Digimon\obj\Debug\net5.0\Digimon.csproj.CoreCompileInputs.cache

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jedad\\Documents\\Tamer United\\Code\\TamersEngine\\TamersEngine\\TamersEngine.csproj",
+      "projectUniqueName": "C:\\Users\\jedad\\Source\\Repos\\TamersEngine3\\TamersEngine\\TamersEngine\\TamersEngine.csproj",
       "projectName": "TamersEngine",
-      "projectPath": "C:\\Users\\jedad\\Documents\\Tamer United\\Code\\TamersEngine\\TamersEngine\\TamersEngine.csproj",
+      "projectPath": "C:\\Users\\jedad\\Source\\Repos\\TamersEngine3\\TamersEngine\\TamersEngine\\TamersEngine.csproj",
       "packagesPath": "C:\\Users\\jedad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jedad\\Documents\\Tamer United\\Code\\TamersEngine\\TamersEngine\\obj\\",
+      "outputPath": "C:\\Users\\jedad\\Source\\Repos\\TamersEngine3\\TamersEngine\\TamersEngine\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jedad\\AppData\\Roaming\\NuGet\\NuGet.Config",
