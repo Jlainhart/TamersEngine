@@ -22,18 +22,30 @@ namespace Value
         public static int minhp { get; set; }
         public static int maxhp { get; set; }
         public static int mp { get; set; }
+        public static int minmp { get; set; }
+        public static int maxmp { get; set; }
         public static int atk { get; set; }
         public static int def { get; set; }
         public static int intel { get; set; }
         public static int spd { get; set; }
         public static int energy { get; set; }
+        public static int minenergy { get; set; }
+        public static int maxenergy { get; set; }
         public static int sick { get; set; }
+        public static int minsick { get; set; }
+        public static int maxsick { get; set; }
         public static int exp { get; set; }
         public static int mood { get; set; }
         public static int tired { get; set; }
+        public static int mintired { get; set; }
+        public static int maxtired { get; set; }
         public static int sleep { get; set; }
         public static int hunger { get; set; }
+        public static int minhunger { get; set; }
+        public static int maxhunger { get; set; }
         public static int poop { get; set; }
+        public static int minpoop { get; set; }
+        public static int maxpoop { get; set; }
         public static int age { get; set; }
         public static int minAge { get; set; }
         public static int maxAge { get; set; }
