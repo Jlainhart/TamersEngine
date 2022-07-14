@@ -19,6 +19,8 @@ namespace Value
         public static bool digiDeath { get; set; }
         public static int lvl { get; set; }
         public static int hp { get; set; }
+        public static int minhp { get; set; }
+        public static int maxhp { get; set; }
         public static int mp { get; set; }
         public static int atk { get; set; }
         public static int def { get; set; }
