@@ -7,6 +7,7 @@ using System.Collections;
 using System.Timers;
 using TamersStats;
 using Value;
+using Inventory;
 
 namespace TamersEngine
 {
@@ -85,16 +86,229 @@ namespace TamersEngine
             Console.Clear();
             Console.WriteLine("Train");
 
-            // 30 min
-            // 1 hour
-            // 2 hour
+            Console.WriteLine("\n1) Health \n2) Mana \n3) Attack \n4) Defence \n5) Speed \n6) Intellagence");
+            Console.Write("\nSelect an option: ");
 
-            // hp (mp)
-            // mp (hp)
-            // attack (int)
-            // defence (spd)
-            // speed (def)
-            // intellanence (atk)
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    Console.Clear();
+                    Console.WriteLine("\n1) 30 Min \n2) 1 Hour \n3) 2 Hour");
+                    Console.Write("\nSelect an option: ");
+                    switch (Console.ReadLine())
+                    {
+                        case "1":
+                            //start 30 min timer
+                            Values.hp += 40;
+                            Values.mp -= 10;
+                            Values.hunger -= 10;
+                            Values.tired += 10;
+                            Values.energy -= 5;
+                            Console.WriteLine("Health Increased by 40 and Mana Decreased by 10");
+                            break;
+                        case "2":
+                            //start 1 hour timer
+                            Values.hp += 80;
+                            Values.hunger -= 20;
+                            Values.tired += 20;
+                            Values.energy -= 10;
+                            Console.WriteLine("Health Increased by 80");
+                            break;
+                        case "3":
+                            //start 2 hour timer
+                            Values.hp += 150;
+                            Values.mp += 70;
+                            Values.hunger -= 40;
+                            Values.tired += 40;
+                            Values.energy -= 20;
+                            Console.WriteLine("Health Increased by 150 and Mana Increased by 70");
+                            break;
+
+                    }
+                    break;
+
+                case "2":
+                    Console.Clear();
+                    Console.WriteLine("\n1) 30 Min \n2) 1 Hour \n3) 2 Hour");
+                    Console.Write("\nSelect an option: ");
+                    switch (Console.ReadLine())
+                    {
+                        case "1":
+                            //start 30 min timer
+                            Values.mp += 40;
+                            Values.hp -= 10;
+                            Values.hunger -= 15;
+                            Values.tired += 10;
+                            Values.energy -= 5;
+                            Console.WriteLine("Mana Increased by 40 and Health Decreased by 10");
+                            break;
+                        case "2":
+                            //start 1 hour timer
+                            Values.mp += 80;
+                            Values.hunger -= 30;
+                            Values.tired += 20;
+                            Values.energy -= 10;
+                            Console.WriteLine("Mana Increased by 80");
+                            break;
+                        case "3":
+                            //start 2 hour timer
+                            Values.mp += 150;
+                            Values.hp += 70;
+                            Values.hunger -= 60;
+                            Values.tired += 40;
+                            Values.energy -= 20;
+                            Console.WriteLine("Mana Increased by 150 and Mana Increased by 70");
+                            break;
+
+                    }
+                    break;
+
+                case "3":
+                    Console.Clear();
+                    Console.WriteLine("\n1) 30 Min \n2) 1 Hour \n3) 2 Hour");
+                    Console.Write("\nSelect an option: ");
+                    switch (Console.ReadLine())
+                    {
+                        case "1":
+                            //start 30 min timer
+                            Values.atk += 4;
+                            Values.def -= 1;
+                            Values.hunger -= 15;
+                            Values.tired += 10;
+                            Values.energy -= 5;
+                            Console.WriteLine("Attack Increased by 4 and Defence Decreased by 1");
+                            break;
+                        case "2":
+                            //start 1 hour timer
+                            Values.atk += 7;
+                            Values.hunger -= 30;
+                            Values.tired += 20;
+                            Values.energy -= 10;
+                            Console.WriteLine("Attack Increased by 7");
+                            break;
+                        case "3":
+                            //start 2 hour timer
+                            Values.atk += 13;
+                            Values.def += 3;
+                            Values.hunger -= 60;
+                            Values.tired += 40;
+                            Values.energy -= 20;
+                            Console.WriteLine("Attack Increased by 13 and Defence Decreased by 3");
+                            break;
+
+                    }
+                    break;
+
+                case "4":
+                    Console.Clear();
+                    Console.WriteLine("\n1) 30 Min \n2) 1 Hour \n3) 2 Hour");
+                    Console.Write("\nSelect an option: ");
+                    switch (Console.ReadLine())
+                    {
+                        case "1":
+                            //start 30 min timer
+                            Values.def += 4;
+                            Values.atk -= 1;
+                            Values.hunger -= 15;
+                            Values.tired += 10;
+                            Values.energy -= 5;
+                            Console.WriteLine("Defence Increased by 4 and Attack Decreased by 1");
+                            break;
+                        case "2":
+                            //start 1 hour timer
+                            Values.def += 7;
+                            Values.hunger -= 30;
+                            Values.tired += 20;
+                            Values.energy -= 10;
+                            Console.WriteLine("Defence Increased by 7");
+                            break;
+                        case "3":
+                            //start 2 hour timer
+                            Values.def += 13;
+                            Values.atk += 3;
+                            Values.hunger -= 60;
+                            Values.tired += 40;
+                            Values.energy -= 20;
+                            Console.WriteLine("Defence Increased by 13 and Attack Increased by 3");
+                            break;
+                    }
+                    break;
+
+                case "5":
+                    Console.Clear();
+                    Console.WriteLine("\n1) 30 Min \n2) 1 Hour \n3) 2 Hour");
+                    Console.Write("\nSelect an option: ");
+                    switch (Console.ReadLine())
+                    {
+                        case "1":
+                            //start 30 min timer
+                            Values.spd += 4;
+                            Values.intel -= 1;
+                            Values.hunger -= 15;
+                            Values.tired += 10;
+                            Values.energy -= 5;
+                            Console.WriteLine("Speed Increased by 4 and Intellagence Decreased by 1");
+                            break;
+                        case "2":
+                            //start 1 hour timer
+                            Values.spd += 7;
+                            Values.hunger -= 30;
+                            Values.tired += 20;
+                            Values.energy -= 10;
+                            Console.WriteLine("Speed Increased by 7");
+                            break;
+                        case "3":
+                            //start 2 hour timer
+                            Values.spd += 13;
+                            Values.intel += 3;
+                            Values.hunger -= 60;
+                            Values.tired += 40;
+                            Values.energy -= 20;
+                            Console.WriteLine("Speed Increased by 13 and Intellagence Increased by 3");
+                            break;
+
+                    }
+                    break;
+
+                case "6":
+                    Console.Clear();
+                    Console.WriteLine("\n1) 30 Min \n2) 1 Hour \n3) 2 Hour");
+                    Console.Write("\nSelect an option: ");
+                    switch (Console.ReadLine())
+                    {
+                        case "1":
+                            //start 30 min timer
+                            Values.intel += 4;
+                            Values.spd -= 1;
+                            Values.hunger -= 15;
+                            Values.tired += 10;
+                            Values.energy -= 5;
+                            Console.WriteLine("Intellagence Increased by 4 and Speed Decreased by 1");
+                            break;
+                        case "2":
+                            //start 1 hour timer
+                            Values.intel += 7;
+                            Values.hunger -= 30;
+                            Values.tired += 20;
+                            Values.energy -= 10;
+                            Console.WriteLine("Intellagence Increased by 7");
+                            break;
+                        case "3":
+                            //start 2 hour timer
+                            Values.intel += 13;
+                            Values.spd += 3;
+                            Values.hunger -= 60;
+                            Values.tired += 40;
+                            Values.energy -= 20;
+                            Console.WriteLine("Intellagence Increased by 13 and Speed Increased by 3");
+                            break;
+
+                    }
+
+                    break;
+
+            }
+  
 
             Console.WriteLine("\nPress Enter to return");
             Console.ReadLine();
@@ -107,14 +321,12 @@ namespace TamersEngine
             Console.Clear();
             Console.WriteLine("Items");
 
-            // increase food
-            // nugget 
-            // meat
-            // large meat
+            Item.Nugget();
+            Item.Meat();
+            Item.LargeMeat();
             // sirloin
-
-            // restore energy
-            // pill
+            
+            Item.Pill();
 
             // restore health
             // bandaid

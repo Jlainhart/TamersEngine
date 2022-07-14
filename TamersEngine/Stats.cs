@@ -7,6 +7,7 @@ using System.Collections;
 using System.Timers;
 using TamersEngine;
 using Value;
+using Inventory;
 
 namespace TamersStats
 {
@@ -89,7 +90,7 @@ namespace TamersStats
             // sleep at night?, removes tired, 3 hour day-3 hour night(pc)
             // digivice(phone) will be real time sync
             Values.hunger = 100;
-            // hunger -= 5 every 5 min
+            // hunger -= 5 every 10 min
             if (Values.hunger <= 50)//display hungry image
             {
 
@@ -121,7 +122,7 @@ namespace TamersStats
             Values.maxAge = 60;
             if (Values.age == Values.maxAge)//restarts to egg
             {
-                //digiDeath = true;
+                Values.digiDeath = true;
             }
             else
             {

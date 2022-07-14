@@ -7,6 +7,7 @@ using System.Collections;
 using System.Timers;
 using TamersStats;
 using TamersEngine;
+using Inventory;
 
 namespace Value
 {
