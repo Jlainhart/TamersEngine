@@ -8,6 +8,7 @@ using System.Timers;
 using TamersStats;
 using TamersEngine;
 using Inventory;
+using Digis;
 
 namespace Value
 {
