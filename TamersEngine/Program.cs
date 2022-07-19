@@ -104,6 +104,7 @@ namespace TamersEngine
                             Values.hunger -= 10;
                             Values.tired += 10;
                             Values.energy -= 5;
+                            Values.exp += 5;
                             Console.WriteLine("Health Increased by 40 and Mana Decreased by 10");
                             break;
                         case "2":
@@ -112,6 +113,7 @@ namespace TamersEngine
                             Values.hunger -= 20;
                             Values.tired += 20;
                             Values.energy -= 10;
+                            Values.exp += 10;
                             Console.WriteLine("Health Increased by 80");
                             break;
                         case "3":
@@ -121,6 +123,7 @@ namespace TamersEngine
                             Values.hunger -= 40;
                             Values.tired += 40;
                             Values.energy -= 20;
+                            Values.exp += 20;
                             Console.WriteLine("Health Increased by 150 and Mana Increased by 70");
                             break;
 
@@ -140,6 +143,7 @@ namespace TamersEngine
                             Values.hunger -= 15;
                             Values.tired += 10;
                             Values.energy -= 5;
+                            Values.exp += 5;
                             Console.WriteLine("Mana Increased by 40 and Health Decreased by 10");
                             break;
                         case "2":
@@ -148,6 +152,7 @@ namespace TamersEngine
                             Values.hunger -= 30;
                             Values.tired += 20;
                             Values.energy -= 10;
+                            Values.exp += 10;
                             Console.WriteLine("Mana Increased by 80");
                             break;
                         case "3":
@@ -157,6 +162,7 @@ namespace TamersEngine
                             Values.hunger -= 60;
                             Values.tired += 40;
                             Values.energy -= 20;
+                            Values.exp += 20;
                             Console.WriteLine("Mana Increased by 150 and Mana Increased by 70");
                             break;
 
@@ -176,6 +182,7 @@ namespace TamersEngine
                             Values.hunger -= 15;
                             Values.tired += 10;
                             Values.energy -= 5;
+                            Values.exp += 5;
                             Console.WriteLine("Attack Increased by 4 and Defence Decreased by 1");
                             break;
                         case "2":
@@ -184,6 +191,7 @@ namespace TamersEngine
                             Values.hunger -= 30;
                             Values.tired += 20;
                             Values.energy -= 10;
+                            Values.exp += 10;
                             Console.WriteLine("Attack Increased by 7");
                             break;
                         case "3":
@@ -193,6 +201,7 @@ namespace TamersEngine
                             Values.hunger -= 60;
                             Values.tired += 40;
                             Values.energy -= 20;
+                            Values.exp += 20;
                             Console.WriteLine("Attack Increased by 13 and Defence Decreased by 3");
                             break;
 
@@ -212,6 +221,7 @@ namespace TamersEngine
                             Values.hunger -= 15;
                             Values.tired += 10;
                             Values.energy -= 5;
+                            Values.exp += 5;
                             Console.WriteLine("Defence Increased by 4 and Attack Decreased by 1");
                             break;
                         case "2":
@@ -220,6 +230,7 @@ namespace TamersEngine
                             Values.hunger -= 30;
                             Values.tired += 20;
                             Values.energy -= 10;
+                            Values.exp += 10;
                             Console.WriteLine("Defence Increased by 7");
                             break;
                         case "3":
@@ -229,6 +240,7 @@ namespace TamersEngine
                             Values.hunger -= 60;
                             Values.tired += 40;
                             Values.energy -= 20;
+                            Values.exp += 20;
                             Console.WriteLine("Defence Increased by 13 and Attack Increased by 3");
                             break;
                     }
@@ -247,6 +259,7 @@ namespace TamersEngine
                             Values.hunger -= 15;
                             Values.tired += 10;
                             Values.energy -= 5;
+                            Values.exp += 5;
                             Console.WriteLine("Speed Increased by 4 and Intellagence Decreased by 1");
                             break;
                         case "2":
@@ -255,6 +268,7 @@ namespace TamersEngine
                             Values.hunger -= 30;
                             Values.tired += 20;
                             Values.energy -= 10;
+                            Values.exp += 10;
                             Console.WriteLine("Speed Increased by 7");
                             break;
                         case "3":
@@ -264,6 +278,7 @@ namespace TamersEngine
                             Values.hunger -= 60;
                             Values.tired += 40;
                             Values.energy -= 20;
+                            Values.exp += 20;
                             Console.WriteLine("Speed Increased by 13 and Intellagence Increased by 3");
                             break;
 
@@ -283,6 +298,7 @@ namespace TamersEngine
                             Values.hunger -= 15;
                             Values.tired += 10;
                             Values.energy -= 5;
+                            Values.exp += 5;
                             Console.WriteLine("Intellagence Increased by 4 and Speed Decreased by 1");
                             break;
                         case "2":
@@ -291,6 +307,7 @@ namespace TamersEngine
                             Values.hunger -= 30;
                             Values.tired += 20;
                             Values.energy -= 10;
+                            Values.exp += 10;
                             Console.WriteLine("Intellagence Increased by 7");
                             break;
                         case "3":
@@ -300,6 +317,7 @@ namespace TamersEngine
                             Values.hunger -= 60;
                             Values.tired += 40;
                             Values.energy -= 20;
+                            Values.exp += 20;
                             Console.WriteLine("Intellagence Increased by 13 and Speed Increased by 3");
                             break;
 
