@@ -58,7 +58,7 @@ namespace TamersEngine
         static bool Home()
         {
             Console.Clear();
-            //digimons image
+            Images.Baby()
             Console.WriteLine("\n1) Train \n2) Feed \n3) Stats \n4) Save and Exit");
             Console.Write("\nSelect an option: ");
 
