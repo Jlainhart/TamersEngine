@@ -119,7 +119,7 @@ namespace TamersStats
 
             Values.poop = 0;
             Values.minpoop = 0;
-            Values.maxpoop = 1000;
+            Values.maxpoop = 100;
             if (Values.poop == 100)//display poop image
             {
                 Values.sick += 1;
