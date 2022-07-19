@@ -7,6 +7,7 @@ using System.Collections;
 using System.Timers;
 using TamersEngine;
 using Value;
+using Digis;
 
 namespace Inventory
 {
