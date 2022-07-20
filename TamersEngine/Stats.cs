@@ -34,10 +34,10 @@ namespace TamersStats
             int index = rnd.Next(personality.Length);
             Values.per = personality[index];
 
-            string[] Mon = new string[] { "Botamon"};
-            Random rnd = new Random();
-            int index = rnd.Next(Mon.Length);
-            Values.digi = Mon[index];
+            string[] Mon = new string[] { "Botamon", "Chibomon", "Jyarimon", "Punimon" };
+            Random rand = new Random();
+            int i = rnd.Next(Mon.Length);
+            Values.digi = Mon[i];
 
             Values.lvl = 0;
             Values.hp = 100;
@@ -149,10 +149,19 @@ namespace TamersStats
             };
 
             // needs to pull from specific digimon
-            Values.digi = "digi";
-            Values.type = "type";
-            Values.attribute = "att";
-            Values.species = "species";
+            switch (Values.digi)
+            {
+                case "Botamon":
+                    Mons.Botamon();
+                    break;
+                case "Veemon":
+                    Mons.Veemon();
+                    break;
+                case "Guilmon":
+                    Mons.Guilmon();
+                    break;
+            }
+            
 
 
 
