@@ -34,6 +34,10 @@ namespace TamersStats
             int index = rnd.Next(personality.Length);
             Values.per = personality[index];
 
+            string[] Mon = new string[] { "Botamon"};
+            Random rnd = new Random();
+            int index = rnd.Next(Mon.Length);
+            Values.digi = Mon[index];
 
             Values.lvl = 0;
             Values.hp = 100;
@@ -210,19 +214,7 @@ namespace TamersStats
             Console.WriteLine("                 ■ ■■■■ ■    ");
         }
 
-        public static void Baby()
-        {
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("                  ■ ■■■■ ■   ");
-            Console.WriteLine("                ■          ■ ");
-            Console.WriteLine("               ■  ■      ■  ■");
-            Console.WriteLine("               ■    ■■■■    ■");
-            Console.WriteLine("               ■            ■");
-            Console.WriteLine("                ■          ■ ");
-            Console.WriteLine("                  ■ ■■■■ ■   ");
-        }
+        
 
         public static void Teen()
         {
