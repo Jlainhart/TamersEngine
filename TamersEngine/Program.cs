@@ -32,13 +32,31 @@ namespace TamersEngine
             while (Values.digiDeath)
             {
                 Console.Clear();
-
+                //egg hatching
                 EggStats.StatPer();
                 Images.Egg();
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
+                Console.Clear();
+                Images.Egg1();
+                Thread.Sleep(1000);
+                Console.Clear();
+                Images.Egg();
+                Thread.Sleep(1000);
+                Console.Clear();
+                Images.Egg2();
+                Thread.Sleep(1000);
+                Console.Clear();
+                Images.Egg();
+                Thread.Sleep(1000);
                 Console.Clear();
                 Images.Hatch();
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
+                Console.Clear();
+                Images.Hatch1();
+                Thread.Sleep(1000);
+                Console.Clear();
+                Images.Hatch2();
+                Thread.Sleep(1000);
 
                 Values.digiDeath = false;
             }
@@ -58,7 +76,8 @@ namespace TamersEngine
 
         static bool Home()
         {
-            Console.Clear();            
+            Console.Clear();
+            //show mon image Values.mon
             Console.WriteLine("\n1) Train \n2) Feed \n3) Stats \n4) Save and Exit");
             Console.Write("\nSelect an option: ");
 
@@ -99,17 +118,26 @@ namespace TamersEngine
                     {
                         case "1":
                             //start 30 min timer
-                            Values.hp += 40;
-                            Values.mp -= 10;
-                            Values.hunger -= 10;
-                            Values.tired += 10;
-                            Values.energy -= 5;
-                            Values.exp += 5;
-                            Console.WriteLine("Health Increased by 40 and Mana Decreased by 10");
+                            if (Values.energy < 5)
+                            {
+                                Console.WriteLine("Not Enough Energy!");
+                                
+                            }
+                            else
+                            {
+                                Values.maxhp += 40;
+                                Values.maxmp -= 10;
+                                Values.hunger -= 10;
+                                Values.tired += 10;
+                                Values.energy -= 5;
+                                Values.exp += 5;
+                                Console.WriteLine("Health Increased by 40 and Mana Decreased by 10");
+                              
+                            }
                             break;
                         case "2":
                             //start 1 hour timer
-                            Values.hp += 80;
+                            Values.maxhp += 80;
                             Values.hunger -= 20;
                             Values.tired += 20;
                             Values.energy -= 10;
@@ -118,8 +146,8 @@ namespace TamersEngine
                             break;
                         case "3":
                             //start 2 hour timer
-                            Values.hp += 150;
-                            Values.mp += 70;
+                            Values.maxhp += 150;
+                            Values.maxmp += 70;
                             Values.hunger -= 40;
                             Values.tired += 40;
                             Values.energy -= 20;
@@ -138,8 +166,8 @@ namespace TamersEngine
                     {
                         case "1":
                             //start 30 min timer
-                            Values.mp += 40;
-                            Values.hp -= 10;
+                            Values.maxmp += 40;
+                            Values.maxhp -= 10;
                             Values.hunger -= 15;
                             Values.tired += 10;
                             Values.energy -= 5;
@@ -148,7 +176,7 @@ namespace TamersEngine
                             break;
                         case "2":
                             //start 1 hour timer
-                            Values.mp += 80;
+                            Values.maxmp += 80;
                             Values.hunger -= 30;
                             Values.tired += 20;
                             Values.energy -= 10;
@@ -157,8 +185,8 @@ namespace TamersEngine
                             break;
                         case "3":
                             //start 2 hour timer
-                            Values.mp += 150;
-                            Values.hp += 70;
+                            Values.maxmp += 150;
+                            Values.maxhp += 70;
                             Values.hunger -= 60;
                             Values.tired += 40;
                             Values.energy -= 20;

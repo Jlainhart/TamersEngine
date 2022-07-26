@@ -43,9 +43,19 @@ namespace TamersStats
             Values.hp = 100;
             Values.minhp = 0;
             Values.maxhp = 100;
+            while (Values.hp < Values.maxhp)
+            {
+                Values.hp =+5;
+                Thread.Sleep(10000);
+            }
             Values.mp = 100;
             Values.minmp = 0;
             Values.maxmp = 100;
+            while (Values.mp < Values.maxmp)
+            {
+                Values.hp = +5;
+                Thread.Sleep(10000);
+            }
             Values.atk = 10;
             Values.def = 10;
             Values.intel = 10;
@@ -151,14 +161,17 @@ namespace TamersStats
             // needs to pull from specific digimon
             switch (Values.digi)
             {
-                case "Botamon":
+                case "Botamon":                   
                     Mons.Botamon();
                     break;
-                case "Veemon":
-                    Mons.Veemon();
+                case "Chibomon":
+                    Mons.Chibomon();
                     break;
-                case "Guilmon":
-                    Mons.Guilmon();
+                case "Jyarimon":
+                    Mons.Jyarimon();
+                    break;
+                case "Punimon":
+                    Mons.Punimon();
                     break;
             }
             
@@ -206,8 +219,61 @@ namespace TamersStats
             Console.WriteLine("               ■          ■  ");
             Console.WriteLine("                 ■ ■■■■ ■    ");
         }
+        public static void Egg1()
+        {
+            Console.WriteLine("                     ■■       ");
+            Console.WriteLine("                   ■    ■     ");
+            Console.WriteLine("                 ■        ■   ");
+            Console.WriteLine("                ■          ■  ");
+            Console.WriteLine("               ■            ■ ");
+            Console.WriteLine("              ■              ■");
+            Console.WriteLine("             ■              ■");
+            Console.WriteLine("             ■              ■");
+            Console.WriteLine("               ■          ■  ");
+            Console.WriteLine("                 ■ ■■■■ ■    ");
+        }
+        public static void Egg2()
+        {
+            Console.WriteLine("                   ■■       ");
+            Console.WriteLine("                 ■    ■     ");
+            Console.WriteLine("               ■        ■   ");
+            Console.WriteLine("              ■          ■  ");
+            Console.WriteLine("             ■            ■ ");
+            Console.WriteLine("            ■              ■");
+            Console.WriteLine("             ■              ■");
+            Console.WriteLine("             ■              ■");
+            Console.WriteLine("               ■          ■  ");
+            Console.WriteLine("                 ■ ■■■■ ■    ");
+        }
 
         public static void Hatch()
+        {
+            Console.WriteLine("                    ■■       ");
+            Console.WriteLine("                  ■    ■     ");
+            Console.WriteLine("                ■        ■   ");
+            Console.WriteLine("              ■            ■ ");
+            Console.WriteLine("             ■  ■ ■ ■■ ■ ■  ■");           
+            Console.WriteLine("             ■  ■ ■ ■■ ■ ■  ■");
+            Console.WriteLine("             ■              ■");
+            Console.WriteLine("             ■              ■");
+            Console.WriteLine("               ■          ■  ");
+            Console.WriteLine("                 ■ ■■■■ ■    ");
+        }
+        public static void Hatch1()
+        {
+            Console.WriteLine("                    ■■       ");
+            Console.WriteLine("                  ■    ■     ");
+            Console.WriteLine("                ■        ■   ");
+            Console.WriteLine("              ■            ■ ");
+            Console.WriteLine("             ■  ■ ■ ■■ ■ ■  ■");
+            Console.WriteLine("              ■  ■      ■  ■ ");
+            Console.WriteLine("             ■  ■ ■ ■■ ■ ■  ■");
+            Console.WriteLine("             ■              ■");
+            Console.WriteLine("             ■              ■");
+            Console.WriteLine("               ■          ■  ");
+            Console.WriteLine("                 ■ ■■■■ ■    ");
+        }
+        public static void Hatch2()
         {
             Console.WriteLine("                    ■■       ");
             Console.WriteLine("                  ■    ■     ");
@@ -223,7 +289,21 @@ namespace TamersStats
             Console.WriteLine("                 ■ ■■■■ ■    ");
         }
 
-        
+        public static void Baby()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("                  ■ ■■■■ ■   ");
+            Console.WriteLine("                ■          ■ ");
+            Console.WriteLine("               ■  ■      ■  ■");
+            Console.WriteLine("               ■    ■■■■    ■");
+            Console.WriteLine("               ■            ■");
+            Console.WriteLine("                ■          ■ ");
+            Console.WriteLine("                  ■ ■■■■ ■   ");
+        }
+
+
 
         public static void Teen()
         {
