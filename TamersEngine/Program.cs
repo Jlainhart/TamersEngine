@@ -397,7 +397,7 @@ namespace TamersEngine
 
             Console.WriteLine($"UserName: {Values.userName}");
             Console.WriteLine($"DigiName: {Values.digiName}");
-            Console.WriteLine($"\nDigi: {Values.digi}  Level: {Values.lvl}  Health: {Values.hp} Mental: {Values.mp}\nAttack: {Values.atk}  Defense: {Values.def}  Intellagence: {Values.intel}  Speed: {Values.spd}\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality:{Values.per} \nEnergy: {Values.energy}  Vitality: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.hunger}  Poop: {Values.poop}  Age: {Values.age}");
+            Console.WriteLine($"\nDigi: {Values.digi}  Level: {Values.lvl}  Health: {Values.hp}/ {Values.maxhp} Mental: {Values.mp}/ {Values.maxmp}\nAttack: {Values.atk}  Defense: {Values.def}  Intellagence: {Values.intel}  Speed: {Values.spd}\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality:{Values.per} \nEnergy: {Values.energy}  Vitality: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.hunger}  Poop: {Values.poop}  Age: {Values.age}");
 
             Console.WriteLine("\nPress Enter to return");
             Console.ReadLine();
