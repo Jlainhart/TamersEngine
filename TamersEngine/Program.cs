@@ -545,13 +545,16 @@ namespace TamersEngine
 
                 case "2":
                     Console.Clear();
-                    Console.WriteLine("\n1) Pill");
+                    Console.WriteLine("\n1) Pill 2) KillPill");
                     Console.Write("\nSelect an option: ");
 
                     switch (Console.ReadLine())
                     {
                         case "1":
                             Item.Pill();
+                            break;
+                        case "2":
+                            Item.KillPill();
                             break;
                         default:
                             return;
@@ -585,7 +588,10 @@ namespace TamersEngine
 
             Console.WriteLine($"UserName: {Values.userName}");
             Console.WriteLine($"DigiName: {Values.digiName}");
-            Console.WriteLine($"\nDigi: {Values.digi}  \nAttack: {Values.atk}  Defense: {Values.def}  \nIntellagence: {Values.intel}  Speed: {Values.spd}\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality:{Values.per} \nVitality: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.fullness}  Poop: {Values.poop}  Age: {Values.age}");
+            Console.WriteLine($"\nDigi: {Values.digi}  \nAttack: {Values.atk}  Defense: {Values.def}  \nIntellagence: {Values.intel}  Speed: {Values.spd}" +
+                $"\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality:{Values.per} " +
+                $"\nVitality: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}" +
+                $"\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.fullness}  Poop: {Values.poop}  Age: {Values.age}");
 
             Console.WriteLine("\nPress Enter to return");
             Console.ReadLine();

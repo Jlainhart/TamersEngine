@@ -33,5 +33,9 @@ namespace Inventory
             Values.energy += 20;
             Values.sick += 15;
         }
+        public static void KillPill()
+        {
+            Values.sick += 100;
+        }
     }
 }
