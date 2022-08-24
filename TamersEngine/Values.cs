@@ -41,7 +41,7 @@ namespace Value
         public static int mintired { get; set; }
         public static int maxtired { get; set; }
         public static int sleep { get; set; }
-        public static int hunger { get; set; }
+        public static int fullness { get; set; }
         public static int minhunger { get; set; }
         public static int maxhunger { get; set; }
         public static int poop { get; set; }

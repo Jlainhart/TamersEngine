@@ -15,17 +15,17 @@ namespace Inventory
     {
         public static void Nugget()
         {
-            Values.hunger += 3;
+            Values.fullness += 3;
             Values.poop += 3;
         }
         public static void Meat()
         {
-            Values.hunger += 5;
+            Values.fullness += 5;
             Values.poop += 5;
         }
         public static void LargeMeat()
         {
-            Values.hunger += 15;
+            Values.fullness += 15;
             Values.poop += 15;
         }
         public static void Pill()
