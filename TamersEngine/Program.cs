@@ -28,44 +28,10 @@ namespace TamersEngine
 
                 Thread.Sleep(2000);
 
-            Values.digiDeath = true;
-            while (Values.digiDeath)
-            {
-                Console.Clear();
-                //egg hatching
                 EggStats.StatPer();
-                Images.Egg();
-                Thread.Sleep(1000);
-                Console.Clear();
-                Images.Egg1();
-                Thread.Sleep(1000);
-                Console.Clear();
-                Images.Egg();
-                Thread.Sleep(1000);
-                Console.Clear();
-                Images.Egg2();
-                Thread.Sleep(1000);
-                Console.Clear();
-                Images.Egg();
-                Thread.Sleep(1000);
-                Console.Clear();
-                Images.Hatch();
-                Thread.Sleep(1000);
-                Console.Clear();
-                Images.Hatch1();
-                Thread.Sleep(1000);
-                Console.Clear();
-                Images.Hatch2();
-                Thread.Sleep(1000);
-
-                Values.digiDeath = false;
-            }
 
 
-            
-
-           
-            // begin main menu
+            // begin main menu            
             bool showMenu = true;
             while (showMenu)
             {
@@ -74,8 +40,15 @@ namespace TamersEngine
         }
 
 
+
         static bool Home()
         {
+
+            while (Values.digiDeath == true)
+            { 
+                EggStats.StatPer();
+            }
+
             Console.Clear();
             Console.WriteLine($"Level: {Values.lvl}  Health: {Values.hp}/ {Values.maxhp} \nMental: {Values.mp}/ {Values.maxmp} Energy: {Values.energy}");
             //show mon image Values.mon
@@ -121,14 +94,18 @@ namespace TamersEngine
                             //start 30 min timer
                             if (Values.energy < 5)
                             {
-                                Console.WriteLine("Not Enough Energy!");
+                                Console.WriteLine("Not enough Energy!");
                                 
+                            }
+                            else if (Values.fullness < 5)
+                            {
+                                Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
                                 Values.maxhp += 40;
                                 Values.maxmp -= 10;
-                                Values.fullness -= 10;
+                                Values.fullness -= 5;
                                 Values.tired += 10;
                                 Values.energy -= 5;
                                 Values.exp += 5;
@@ -142,10 +119,14 @@ namespace TamersEngine
                             {
                                 Console.WriteLine("Not Enough Energy!");
                             }
+                            else if (Values.fullness < 10)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.maxhp += 80;
-                                Values.fullness -= 20;
+                                Values.fullness -= 10;
                                 Values.tired += 20;
                                 Values.energy -= 10;
                                 Values.exp += 10;
@@ -158,13 +139,20 @@ namespace TamersEngine
                             {
                                 Console.WriteLine("Not Enough Energy!");
                             }
-                            Values.maxhp += 150;
-                            Values.maxmp += 70;
-                            Values.fullness -= 40;
-                            Values.tired += 40;
-                            Values.energy -= 20;
-                            Values.exp += 20;
-                            Console.WriteLine("Health Increased by 150 and Mana Increased by 70");
+                            else if (Values.fullness < 20)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
+                            else
+                            {
+                                Values.maxhp += 150;
+                                Values.maxmp += 70;
+                                Values.fullness -= 20;
+                                Values.tired += 40;
+                                Values.energy -= 20;
+                                Values.exp += 20;
+                                Console.WriteLine("Health Increased by 150 and Mana Increased by 70");
+                            }
                             break;
                         default:
                             return;
@@ -184,12 +172,16 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 5)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 //start 30 min timer
                                 Values.maxmp += 40;
                                 Values.maxhp -= 10;
-                                Values.fullness -= 15;
+                                Values.fullness -= 5;
                                 Values.tired += 10;
                                 Values.energy -= 5;
                                 Values.exp += 5;
@@ -203,10 +195,14 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 10)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.maxmp += 80;
-                                Values.fullness -= 30;
+                                Values.fullness -= 10;
                                 Values.tired += 20;
                                 Values.energy -= 10;
                                 Values.exp += 10;
@@ -220,11 +216,15 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 20)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.maxmp += 150;
                                 Values.maxhp += 70;
-                                Values.fullness -= 60;
+                                Values.fullness -= 20;
                                 Values.tired += 40;
                                 Values.energy -= 20;
                                 Values.exp += 20;
@@ -250,11 +250,15 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 5)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.atk += 4;
                                 Values.def -= 1;
-                                Values.fullness -= 15;
+                                Values.fullness -= 5;
                                 Values.tired += 10;
                                 Values.energy -= 5;
                                 Values.exp += 5;
@@ -268,10 +272,14 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 10)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.atk += 7;
-                                Values.fullness -= 30;
+                                Values.fullness -= 10;
                                 Values.tired += 20;
                                 Values.energy -= 10;
                                 Values.exp += 10;
@@ -285,11 +293,15 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 20)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.atk += 13;
                                 Values.def += 3;
-                                Values.fullness -= 60;
+                                Values.fullness -= 20;
                                 Values.tired += 40;
                                 Values.energy -= 20;
                                 Values.exp += 20;
@@ -315,11 +327,15 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 5)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.def += 4;
                                 Values.atk -= 1;
-                                Values.fullness -= 15;
+                                Values.fullness -= 5;
                                 Values.tired += 10;
                                 Values.energy -= 5;
                                 Values.exp += 5;
@@ -333,10 +349,14 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 10)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.def += 7;
-                                Values.fullness -= 30;
+                                Values.fullness -= 10;
                                 Values.tired += 20;
                                 Values.energy -= 10;
                                 Values.exp += 10;
@@ -350,11 +370,15 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 20)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.def += 13;
                                 Values.atk += 3;
-                                Values.fullness -= 60;
+                                Values.fullness -= 20;
                                 Values.tired += 40;
                                 Values.energy -= 20;
                                 Values.exp += 20;
@@ -379,11 +403,15 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 5)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.spd += 4;
                                 Values.intel -= 1;
-                                Values.fullness -= 15;
+                                Values.fullness -= 5;
                                 Values.tired += 10;
                                 Values.energy -= 5;
                                 Values.exp += 5;
@@ -397,10 +425,14 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 10)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.spd += 7;
-                                Values.fullness -= 30;
+                                Values.fullness -= 10;
                                 Values.tired += 20;
                                 Values.energy -= 10;
                                 Values.exp += 10;
@@ -414,11 +446,15 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 20)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.spd += 13;
                                 Values.intel += 3;
-                                Values.fullness -= 60;
+                                Values.fullness -= 20;
                                 Values.tired += 40;
                                 Values.energy -= 20;
                                 Values.exp += 20;
@@ -445,11 +481,15 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 5)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.intel += 4;
                                 Values.spd -= 1;
-                                Values.fullness -= 15;
+                                Values.fullness -= 5;
                                 Values.tired += 10;
                                 Values.energy -= 5;
                                 Values.exp += 5;
@@ -463,10 +503,14 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 10)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.intel += 7;
-                                Values.fullness -= 30;
+                                Values.fullness -= 10;
                                 Values.tired += 20;
                                 Values.energy -= 10;
                                 Values.exp += 10;
@@ -480,11 +524,15 @@ namespace TamersEngine
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
+                            else if (Values.fullness < 20)
+                            {
+                                Console.WriteLine("Im too hungry!");
+                            }
                             else
                             {
                                 Values.intel += 13;
                                 Values.spd += 3;
-                                Values.fullness -= 60;
+                                Values.fullness -= 20;
                                 Values.tired += 40;
                                 Values.energy -= 20;
                                 Values.exp += 20;
@@ -589,9 +637,9 @@ namespace TamersEngine
             Console.WriteLine($"UserName: {Values.userName}");
             Console.WriteLine($"DigiName: {Values.digiName}");
             Console.WriteLine($"\nDigi: {Values.digi}  \nAttack: {Values.atk}  Defense: {Values.def}  \nIntellagence: {Values.intel}  Speed: {Values.spd}" +
-                $"\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality:{Values.per} " +
-                $"\nVitality: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}" +
-                $"\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.fullness}  Poop: {Values.poop}  Age: {Values.age}");
+                $"\n\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality:{Values.per} " +
+                $"\n\nVitality: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}" +
+                $"\n\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.fullness}  Poop: {Values.poop}  Age: {Values.age}");
 
             Console.WriteLine("\nPress Enter to return");
             Console.ReadLine();

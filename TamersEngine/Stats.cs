@@ -21,8 +21,6 @@ namespace TamersStats
                     return value.ToString("MM-dd-yyyy-HH-mm");
                     string timeStamp = GetTimestamp(DateTime.Now);
                 }*/
-
-
             Console.Clear();
             Console.WriteLine("Enter Digimon Name:");
 
@@ -43,19 +41,9 @@ namespace TamersStats
             Values.hp = 100;
             Values.minhp = 0;
             Values.maxhp = 100;
-            while (Values.hp < Values.maxhp)
-            {
-                Values.hp =+5;
-                Thread.Sleep(10000);
-            }
             Values.mp = 100;
             Values.minmp = 0;
             Values.maxmp = 100;
-            while (Values.mp < Values.maxmp)
-            {
-                Values.hp = +5;
-                Thread.Sleep(10000);
-            }
             Values.atk = 10;
             Values.def = 10;
             Values.intel = 10;
@@ -68,6 +56,108 @@ namespace TamersStats
             Values.minsick = 0;
             Values.maxsick = 100;
             // how sick it is
+            Values.exp = 0;
+            Values.mood = 100;
+            // - if hunger 0, poop 100, tired 50, vitality 100 or sleepy.
+            Values.tired = 0;
+            Values.mintired = 0;
+            Values.maxtired = 100;
+            Values.sleep = 000000;
+            // sleep at night?, removes tired, 3 hour day-3 hour night(pc)
+            // digivice(phone) will be real time sync
+            Values.fullness = 100;
+            Values.minfullness = 0;
+            Values.maxfullness = 100;
+            // hunger -= 5 every 10 min
+            Values.poop = 0;
+            Values.minpoop = 0;
+            Values.maxpoop = 100;
+            Values.age = 0;
+            Values.minAge = 0;
+            Values.maxAge = 60;
+
+            switch (Values.digi)
+            {
+                case "Botamon":
+                    Mons.Botamon();
+                    break;
+                case "Chibomon":
+                    Mons.Chibomon();
+                    break;
+                case "Jyarimon":
+                    Mons.Jyarimon();
+                    break;
+                case "Punimon":
+                    Mons.Punimon();
+                    break;
+            }
+
+            switch (Values.per)
+            {
+                case "Durable":
+                    Values.maxhp += 50;
+                    break;
+                case "Lively":
+                    Values.maxmp += 50;
+                    break;
+                case "Fighter":
+                    Values.atk += 5;
+                    break;
+                case "Defender":
+                    Values.def += 5;
+                    break;
+                case "Brainy":
+                    Values.intel += 5;
+                    break;
+                case "Nimble":
+                    Values.spd += 5;
+                    break;
+            }
+
+            //egg hatching
+
+            Images.Egg();
+            Thread.Sleep(1000);
+            Console.Clear();
+            Images.Egg1();
+            Thread.Sleep(1000);
+            Console.Clear();
+            Images.Egg();
+            Thread.Sleep(1000);
+            Console.Clear();
+            Images.Egg2();
+            Thread.Sleep(1000);
+            Console.Clear();
+            Images.Egg();
+            Thread.Sleep(1000);
+            Console.Clear();
+            Images.Hatch();
+            Thread.Sleep(1000);
+            Console.Clear();
+            Images.Hatch1();
+            Thread.Sleep(1000);
+            Console.Clear();
+            Images.Hatch2();
+            Thread.Sleep(1000);
+
+            Values.digiDeath = false;
+        }
+
+            public static void Checkstat()
+            { 
+           
+            while (Values.hp < Values.maxhp)
+            {
+                Values.hp =+5;
+                //Thread.Sleep(10000);
+            }
+            
+            while (Values.mp < Values.maxmp)
+            {
+                Values.hp = +5;
+                //Thread.Sleep(10000);
+            }
+            
             if (Values.sick == Values.maxsick)//restarts to egg
             {
                 Values.digiDeath = true;
@@ -75,9 +165,8 @@ namespace TamersStats
             else
             {
 
-            };
+            }
 
-            Values.exp = 0;
             switch (Values.exp)
             {
                 case int x when (x < 99):
@@ -100,12 +189,7 @@ namespace TamersStats
                     break;
             }
 
-            Values.mood = 100;
-            // - if hunger 0, poop 100, tired 50, vitality 100 or sleepy.
 
-            Values.tired = 0;
-            Values.mintired = 0;
-            Values.maxtired = 100;
             if (Values.tired >= 50)//half training points half energy
             {
                 Values.energy = -25;
@@ -119,13 +203,7 @@ namespace TamersStats
             }
 
 
-            Values.sleep = 000000;
-            // sleep at night?, removes tired, 3 hour day-3 hour night(pc)
-            // digivice(phone) will be real time sync
-            Values.fullness = 100;
-            Values.minfullness = 0;
-            Values.maxfullness = 100;
-            // hunger -= 5 every 10 min
+
             if (Values.fullness <= 50)//display hungry image
             {
 
@@ -140,9 +218,7 @@ namespace TamersStats
             };
 
 
-            Values.poop = 0;
-            Values.minpoop = 0;
-            Values.maxpoop = 100;
+
             if (Values.poop == 100)//display poop image
             {
                 Values.sick += 1;
@@ -151,12 +227,9 @@ namespace TamersStats
             else
             {
 
-            };
+            }
 
-            Values.age = 0;
 
-            Values.minAge = 0;
-            Values.maxAge = 60;
             if (Values.age == Values.maxAge)//restarts to egg
             {
                 Values.digiDeath = true;
@@ -164,47 +237,10 @@ namespace TamersStats
             else
             {
 
-            };
-
-            // needs to pull from specific digimon
-            switch (Values.digi)
-            {
-                case "Botamon":                   
-                    Mons.Botamon();
-                    break;
-                case "Chibomon":
-                    Mons.Chibomon();
-                    break;
-                case "Jyarimon":
-                    Mons.Jyarimon();
-                    break;
-                case "Punimon":
-                    Mons.Punimon();
-                    break;
             }
+
+
             
-
-            switch (Values.per)
-            {
-                case "Durable":
-                    Values.hp += 50 + Values.lvl * 10;
-                    break;
-                case "Lively":
-                    Values.mp += 50 + Values.lvl * 10;
-                    break;
-                case "Fighter":
-                    Values.atk += 5 + Values.lvl * 1;
-                    break;
-                case "Defender":
-                    Values.def += 5 + Values.lvl * 1;
-                    break;
-                case "Brainy":
-                    Values.intel += 5 + Values.lvl * 1;
-                    break;
-                case "Nimble":
-                    Values.spd += 5 + Values.lvl * 1;
-                    break;
-            }
 
         }
     }
