@@ -28,6 +28,11 @@ namespace Inventory
             Values.fullness += 15;
             Values.poop += 15;
         }
+        public static void Sirloin()
+        {
+            Values.fullness += 35;
+            Values.poop += 35;
+        }
         public static void Pill()
         {
             Values.energy += 20;

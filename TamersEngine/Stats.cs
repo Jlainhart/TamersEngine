@@ -144,8 +144,8 @@ namespace TamersStats
         }
 
             public static void Checkstat()
-            { 
-           
+        {
+
             while (Values.hp < Values.maxhp)
             {
                 Values.hp =+5;
@@ -154,7 +154,7 @@ namespace TamersStats
             
             while (Values.mp < Values.maxmp)
             {
-                Values.hp = +5;
+                Values.mp =+5;
                 //Thread.Sleep(10000);
             }
             
