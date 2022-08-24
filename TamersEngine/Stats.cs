@@ -66,8 +66,16 @@ namespace TamersStats
             // how much exploring or battles can be done before rest, sleep.
             Values.sick = 0;
             Values.minsick = 0;
-            Values.maxsick = 1000;
+            Values.maxsick = 100;
             // how sick it is
+            if (Values.sick == Values.maxsick)//restarts to egg
+            {
+                Values.digiDeath = true;
+            }
+            else
+            {
+
+            };
 
             Values.exp = 0;
             switch (Values.exp)
@@ -114,15 +122,15 @@ namespace TamersStats
             Values.sleep = 000000;
             // sleep at night?, removes tired, 3 hour day-3 hour night(pc)
             // digivice(phone) will be real time sync
-            Values.hunger = 100;
-            Values.minhunger = 0;
-            Values.maxhunger = 100;
+            Values.fullness = 100;
+            Values.minfullness = 0;
+            Values.maxfullness = 100;
             // hunger -= 5 every 10 min
-            if (Values.hunger <= 50)//display hungry image
+            if (Values.fullness <= 50)//display hungry image
             {
 
             }
-            else if (Values.hunger == 0)// energy goes to 0
+            else if (Values.fullness == 0)// energy goes to 0
             {
                 Values.energy = -50;
             }
@@ -175,9 +183,6 @@ namespace TamersStats
                     break;
             }
             
-
-
-
 
             switch (Values.per)
             {
