@@ -43,11 +43,19 @@ namespace TamersEngine
 
         static bool Home()
         {
-
-            while (Values.digiDeath == true)
+            if (Values.digiDeath == false)
+            {
+                EggStats.Checkstat();
+            }
+            else if (Values.digiDeath == true)
             { 
                 EggStats.StatPer();
             }
+            else
+            {
+
+            }
+           
 
             Console.Clear();
             Console.WriteLine($"Level: {Values.lvl}  Health: {Values.hp}/ {Values.maxhp} \nMental: {Values.mp}/ {Values.maxmp} Energy: {Values.energy}");
@@ -305,7 +313,7 @@ namespace TamersEngine
                                 Values.tired += 40;
                                 Values.energy -= 20;
                                 Values.exp += 20;
-                                Console.WriteLine("Attack Increased by 13 and Defence Decreased by 3");
+                                Console.WriteLine("Attack Increased by 13 and Defence Increased by 3");
                             }
                             break;
                         default:
@@ -584,7 +592,7 @@ namespace TamersEngine
                             Item.LargeMeat();
                             break;
                         case "4":
-                            // sirloin
+                            Item.Sirloin();
                             break;
                         default:
                             return;
@@ -630,21 +638,23 @@ namespace TamersEngine
         }
 
         static void Stats()
-        {
-            Console.Clear();
-            Console.WriteLine("Stats");
+            {
+                Console.Clear();
+                Console.WriteLine("Stats");
 
-            Console.WriteLine($"UserName: {Values.userName}");
-            Console.WriteLine($"DigiName: {Values.digiName}");
-            Console.WriteLine($"\nDigi: {Values.digi}  \nAttack: {Values.atk}  Defense: {Values.def}  \nIntellagence: {Values.intel}  Speed: {Values.spd}" +
-                $"\n\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality:{Values.per} " +
-                $"\n\nVitality: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}" +
-                $"\n\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.fullness}  Poop: {Values.poop}  Age: {Values.age}");
+                Console.WriteLine($"UserName: {Values.userName}");
+                Console.WriteLine($"DigiName: {Values.digiName}");
+                Console.WriteLine($"\nDigi: {Values.digi}  \nAttack: {Values.atk}  Defense: {Values.def}  \nIntellagence: {Values.intel}  Speed: {Values.spd}" +
+                    $"\n\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality: {Values.per} " +
+                    $"\n\nSickness: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}" +
+                    $"\n\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.fullness}  Poop: {Values.poop}  Age: {Values.age}");
 
-            Console.WriteLine("\nPress Enter to return");
-            Console.ReadLine();
+                Console.WriteLine("\nPress Enter to return");
+                Console.ReadLine();
+
+         
         }
-
+        
     }
 }
     
