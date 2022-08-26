@@ -146,13 +146,13 @@ namespace TamersStats
             public static void Checkstat()
         {
 
-            while (Values.hp < Values.maxhp)
+            if (Values.hp < Values.maxhp)
             {
                 Values.hp =+5;
                 //Thread.Sleep(10000);
             }
             
-            while (Values.mp < Values.maxmp)
+            if (Values.mp < Values.maxmp)
             {
                 Values.mp =+5;
                 //Thread.Sleep(10000);
@@ -162,10 +162,7 @@ namespace TamersStats
             {
                 Values.digiDeath = true;
             }
-            else
-            {
 
-            }
 
             switch (Values.exp)
             {
@@ -204,6 +201,7 @@ namespace TamersStats
 
 
 
+            
             if (Values.fullness <= 50)//display hungry image
             {
 
@@ -381,7 +379,7 @@ namespace TamersStats
             Console.WriteLine("                   ■ ■ ■ ■      ");
             Console.WriteLine("                   ■     ■      ");
             Console.WriteLine("             ■ ■ ■ ■     ■ ■ ■ ■");
-            Console.WriteLine("             ■      R.I.P.     ■");
+            Console.WriteLine("             ■                 ■");
             Console.WriteLine("             ■ ■ ■ ■     ■ ■ ■ ■");
             Console.WriteLine("                   ■     ■      ");
             Console.WriteLine("                   ■     ■      ");
