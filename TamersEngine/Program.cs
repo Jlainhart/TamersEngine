@@ -41,19 +41,20 @@ namespace TamersEngine
 
 
 
-        static bool Home()
+        static bool Home()            
         {
             if (Values.digiDeath == false)
             {
                 EggStats.Checkstat();
+                
             }
-            else if (Values.digiDeath == true)
-            { 
-                EggStats.StatPer();
-            }
-            else
+            
+            if (Values.digiDeath == true)
             {
-
+                Images.Dead();
+                Console.WriteLine($"{Values.digiName} Has Degenerated back into a Digi Egg!.");
+                Thread.Sleep(5000);
+                EggStats.StatPer();
             }
            
 
@@ -61,8 +62,8 @@ namespace TamersEngine
             Console.WriteLine($"Level: {Values.lvl}  Health: {Values.hp}/ {Values.maxhp} \nMental: {Values.mp}/ {Values.maxmp} Energy: {Values.energy}");
             //show mon image Values.mon
             Console.WriteLine("\n1) Train \n2) Feed \n3) Stats \n4) Save and Exit");
-            Console.Write("\nSelect an option: ");
-
+            Console.Write("\nSelect an option: ");            
+            
             switch (Console.ReadLine())
             {
                 case "1":
