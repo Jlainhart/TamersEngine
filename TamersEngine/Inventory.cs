@@ -42,5 +42,6 @@ namespace Inventory
         {
             Values.sick += 100;
         }
+        
     }
 }
