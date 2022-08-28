@@ -55,5 +55,10 @@ namespace Value
         public static string attribute { get; set; }
         public static string species { get; set; }
         public static string mon { get; set; }
+
+        public static string[] BannedList = { "butt", "ass" };  
+
     }
+
+    
 }

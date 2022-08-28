@@ -145,14 +145,16 @@ namespace TamersStats
 
             public static void Checkstat()
         {
-
-            if (Values.hp < Values.maxhp)
+            Console.Clear();
+            
+            while (Values.hp < Values.maxhp)
             {
                 Values.hp += 5;
                 //Thread.Sleep(10000);
-            }
+            } 
             
-            if (Values.mp < Values.maxmp)
+
+            while (Values.mp < Values.maxmp)
             {
                 Values.mp += 5;
                 //Thread.Sleep(10000);

@@ -21,8 +21,24 @@ namespace TamersEngine
             
 
                 Console.WriteLine("Enter UserName:");
-
+            
                 Values.userName = Console.ReadLine();
+
+            while (Values.userName.Length < 3)
+            {
+                Console.Clear();
+                Console.WriteLine("UserName must be atleast 3 characters and no more than 12.");
+                Console.WriteLine("Enter UserName:");
+                Values.userName = Console.ReadLine();
+            }
+            /*while (string.Equals(Values.userName, Values.BannedList, StringComparison.CurrentCultureIgnoreCase))
+            {
+             Console.Clear();
+             Console.WriteLine("UserName is in use or not allowed.");
+             Console.WriteLine("Enter UserName:");            
+             Values.userName = Console.ReadLine();
+            }*/             
+
                 Console.Clear();
                 Console.WriteLine($"{Values.userName}, Iv been waiting for you.");
 
