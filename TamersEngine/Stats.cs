@@ -148,13 +148,13 @@ namespace TamersStats
 
             if (Values.hp < Values.maxhp)
             {
-                Values.hp =+5;
+                Values.hp += 5;
                 //Thread.Sleep(10000);
             }
             
             if (Values.mp < Values.maxmp)
             {
-                Values.mp =+5;
+                Values.mp += 5;
                 //Thread.Sleep(10000);
             }
             
