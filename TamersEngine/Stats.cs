@@ -24,7 +24,15 @@ namespace TamersStats
             Console.Clear();
             Console.WriteLine("Enter Digimon Name:");
 
+
             Values.digiName = Console.ReadLine();
+            while (Values.digiName.Length < 3)
+            {
+                Console.Clear();
+                Console.WriteLine("Digimon Name must be atleast 1 character.");
+                Console.WriteLine("Enter UserName:");
+                Values.digiName = Console.ReadLine();
+            }
             Console.Clear();
 
             string[] personality = new string[] { "Durable", "Lively", "Fighter", "Defender", "Brainy", "Nimble" };

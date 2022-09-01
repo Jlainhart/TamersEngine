@@ -9,6 +9,9 @@ using TamersStats;
 using Value;
 using Inventory;
 using Digis;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Xml;
 
 namespace TamersEngine
 {
@@ -17,27 +20,53 @@ namespace TamersEngine
     {
         static void Main()
         {
-            // intro fill in info
+            
+            Console.Clear();
+            Console.WriteLine("\n1) Continue \n2) New Game \n3) Options");
+            Console.Write("\nSelect an option: ");
+
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                    //Load();
+                    //Console.Clear();
+                    Main();                   
+                    break;
+                    case "2":
+                        NewGame();
+                    break;
+                    case "3":
+                    //Options();
+                    //Console.Clear();
+                    Main();
+                    break;
+                    default:
+                        Main();
+                    break;
+                }
             
 
-                Console.WriteLine("Enter UserName:");
-            
-                Values.userName = Console.ReadLine();
-
-            while (Values.userName.Length < 3)
+            static void NewGame()
             {
                 Console.Clear();
-                Console.WriteLine("UserName must be atleast 3 characters and no more than 12.");
                 Console.WriteLine("Enter UserName:");
+
                 Values.userName = Console.ReadLine();
-            }
-            /*while (string.Equals(Values.userName, Values.BannedList, StringComparison.CurrentCultureIgnoreCase))
-            {
-             Console.Clear();
-             Console.WriteLine("UserName is in use or not allowed.");
-             Console.WriteLine("Enter UserName:");            
-             Values.userName = Console.ReadLine();
-            }*/             
+
+                while (Values.userName.Length < 3)
+                {
+                    Console.Clear();
+                    Console.WriteLine("UserName must be atleast 3 characters.");
+                    Console.WriteLine("Enter UserName:");
+                    Values.userName = Console.ReadLine();
+                }
+                /*while (string.Equals(Values.userName, Values.badWords, StringComparison.CurrentCultureIgnoreCase))
+                {
+                 Console.Clear();
+                 Console.WriteLine("UserName is in use or not allowed.");
+                 Console.WriteLine("Enter UserName:");            
+                 Values.userName = Console.ReadLine();
+                }*/
 
                 Console.Clear();
                 Console.WriteLine($"{Values.userName}, Iv been waiting for you.");
@@ -47,12 +76,16 @@ namespace TamersEngine
                 EggStats.StatPer();
 
 
-            // begin main menu            
-            bool showMenu = true;
-            while (showMenu)
-            {
-                showMenu = Home();
+                // begin main menu            
+                bool showMenu = true;
+                while (showMenu)
+                {
+                    showMenu = Home();
+                }
+
             }
+
+            
         }
 
 
@@ -92,6 +125,7 @@ namespace TamersEngine
                     Stats();
                     return true;
                 case "4":
+                  //Save();
                     return false;
                 default:
                     return true;
@@ -180,7 +214,8 @@ namespace TamersEngine
                             }
                             break;
                         default:
-                            return;
+                            Console.WriteLine("Choose again");
+                            break;
 
                     }
                     break;
@@ -257,7 +292,8 @@ namespace TamersEngine
                             }
                             break;
                         default:
-                            return;
+                            Console.WriteLine("Choose again");
+                            break;
 
                     }
                     break;
@@ -334,7 +370,8 @@ namespace TamersEngine
                             }
                             break;
                         default:
-                            return;
+                            Console.WriteLine("Choose again");
+                            break;
 
                     }
                     break;
@@ -411,7 +448,8 @@ namespace TamersEngine
                             }
                             break;
                         default:
-                            return;
+                            Console.WriteLine("Choose again");
+                            break;
                     }
                     break;
 
@@ -487,7 +525,8 @@ namespace TamersEngine
                             }
                             break;
                         default:
-                            return;
+                            Console.WriteLine("Choose again");
+                            break;
 
                     }
                     break;
@@ -565,14 +604,16 @@ namespace TamersEngine
                             }
                             break;
                         default:
-                            return;
+                            Console.WriteLine("Choose again");
+                            break;
 
                     }
-
                     break;
 
                 default:
-                    return;
+                    Train();
+                    break;
+
 
             }
   
@@ -651,7 +692,6 @@ namespace TamersEngine
             Console.WriteLine("\nPress Enter to return");
             Console.ReadLine();
 
-
         }
 
         static void Stats()
@@ -669,7 +709,33 @@ namespace TamersEngine
                 Console.WriteLine("\nPress Enter to return");
                 Console.ReadLine();
 
-         
+        }
+
+        static void Save<T>(T serializableClass, string filepath)
+        {
+            var serializer = new DataContractSerializer(typeof(T));
+            var settings = new XmlWriterSettings();
+            /*{
+                Indent = true;
+                IndentChars = "\t";
+            };*/
+            var writer = XmlWriter.Create(filepath, settings);
+            serializer.WriteObject(writer, serializableClass);
+            writer.Close();
+
+            Console.WriteLine("Game Saved!");
+            Thread.Sleep(2000);
+        }
+
+        static T Load<T>(string filepath)
+        {
+            var fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+            var reader = XmlDictionaryReader.CreateTextReader(fileStream, new XmlDictionaryReaderQuotas());
+            var serializer = new DataContractSerializer(typeof(T));
+            T serializableClass = (T)serializer.ReadObject(reader, true);
+            reader.Close();
+            Home();
+            return serializableClass;
         }
         
     }
