@@ -12,6 +12,7 @@ using Digis;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Xml;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace TamersEngine
 {
@@ -28,9 +29,11 @@ namespace TamersEngine
                 switch (Console.ReadLine())
                 {
                     case "1":
-                    //Load();
+                        Values.digiDeath = false;
+                        Values data = LoadData("filename");
+                        Home(data);
                     //Console.Clear();
-                    Main();                   
+                        Main();                   
                     break;
                     case "2":
                         NewGame();
@@ -38,7 +41,7 @@ namespace TamersEngine
                     case "3":
                     //Options();
                     //Console.Clear();
-                    Main();
+                        Main();
                     break;
                     default:
                         Main();
@@ -60,7 +63,7 @@ namespace TamersEngine
                     Console.WriteLine("Enter UserName:");
                     Values.userName = Console.ReadLine();
                 }
-                /*while (string.Equals(Values.userName, Values.badWords, StringComparison.CurrentCultureIgnoreCase))
+                /*while (Values.userName.Equals(Values.badWords))
                 {
                  Console.Clear();
                  Console.WriteLine("UserName is in use or not allowed.");
@@ -75,12 +78,14 @@ namespace TamersEngine
 
                 EggStats.StatPer();
 
+                Values data = new Values();
+
 
                 // begin main menu            
                 bool showMenu = true;
                 while (showMenu)
                 {
-                    showMenu = Home();
+                    showMenu = Home(data);
                 }
 
             }
@@ -90,7 +95,7 @@ namespace TamersEngine
 
 
 
-        static bool Home()            
+        public static bool Home(Values data)            
         {
             if (Values.digiDeath == false)
             {
@@ -116,16 +121,16 @@ namespace TamersEngine
             switch (Console.ReadLine())
             {
                 case "1":
-                    Train();
+                    Train(data);
                     return true;
                 case "2":
-                    Items();
+                    Items(data);
                     return true;
                 case "3":
-                    Stats();
+                    Stats(data);
                     return true;
                 case "4":
-                  //Save();
+                    SaveData(data, "filename");
                     return false;
                 default:
                     return true;
@@ -133,7 +138,7 @@ namespace TamersEngine
 
         }
 
-        static void Train()
+        static void Train(Values data)
         {
             Console.Clear();
             Console.WriteLine("Train");
@@ -611,7 +616,7 @@ namespace TamersEngine
                     break;
 
                 default:
-                    Train();
+                    Train(data);
                     break;
 
 
@@ -624,7 +629,7 @@ namespace TamersEngine
 
         }
 
-        static void Items()
+        static void Items(Values data)
         {
             Console.Clear();
             Console.WriteLine("Items");
@@ -694,15 +699,15 @@ namespace TamersEngine
 
         }
 
-        static void Stats()
+        static void Stats(Values data)
             {
                 Console.Clear();
                 Console.WriteLine("Stats");
 
                 Console.WriteLine($"UserName: {Values.userName}");
                 Console.WriteLine($"DigiName: {Values.digiName}");
-                Console.WriteLine($"\nDigi: {Values.digi}  \nAttack: {Values.atk}  Defense: {Values.def}  \nIntellagence: {Values.intel}  Speed: {Values.spd}" +
-                    $"\n\nType: {Values.type} Attribute: {Values.attribute}  Species: {Values.species}  Personality: {Values.per} " +
+                Console.WriteLine($"\nDigi: {Values.digi}  \nAttack: {Values.atk}  Defense: {Values.def}  \n\nIntellagence: {Values.intel}  Speed: {Values.spd}" +
+                    $"\n\nType: {Values.type}  Attribute: {Values.attribute}  Species: {Values.species}  Personality: {Values.per} " +
                     $"\n\nSickness: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}" +
                     $"\n\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.fullness}  Poop: {Values.poop}  Age: {Values.age}");
 
@@ -711,33 +716,24 @@ namespace TamersEngine
 
         }
 
-        static void Save<T>(T serializableClass, string filepath)
+        public static void SaveData(Values data, string filename)
         {
-            var serializer = new DataContractSerializer(typeof(T));
-            var settings = new XmlWriterSettings();
-            /*{
-                Indent = true;
-                IndentChars = "\t";
-            };*/
-            var writer = XmlWriter.Create(filepath, settings);
-            serializer.WriteObject(writer, serializableClass);
-            writer.Close();
-
-            Console.WriteLine("Game Saved!");
-            Thread.Sleep(2000);
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream stream = new FileStream(filename, FileMode.Create))
+            {
+                formatter.Serialize(stream, data);
+            }
         }
 
-        static T Load<T>(string filepath)
+        public static Values LoadData(string filename)
         {
-            var fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
-            var reader = XmlDictionaryReader.CreateTextReader(fileStream, new XmlDictionaryReaderQuotas());
-            var serializer = new DataContractSerializer(typeof(T));
-            T serializableClass = (T)serializer.ReadObject(reader, true);
-            reader.Close();
-            Home();
-            return serializableClass;
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream stream = new FileStream(filename, FileMode.Open))
+            {
+                Values data = (Values)formatter.Deserialize(stream);
+                return data;
+            }
         }
-        
     }
 }
     

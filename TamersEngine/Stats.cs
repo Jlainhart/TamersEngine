@@ -16,11 +16,10 @@ namespace TamersStats
     {
         public static void StatPer()
         {
-            /*static String GetTimestamp(DateTime value)
-                {
-                    return value.ToString("MM-dd-yyyy-HH-mm");
-                    string timeStamp = GetTimestamp(DateTime.Now);
-                }*/
+
+                
+            Values.timeStampBorn = DateTime.Now;
+                
             Console.Clear();
             Console.WriteLine("Enter Digimon Name:");
 
@@ -154,7 +153,11 @@ namespace TamersStats
             public static void Checkstat()
         {
             Console.Clear();
-            
+
+            DateTime currentTime = DateTime.Now;
+            TimeSpan timeDifference = currentTime - Values.timeStampBorn;
+            Values.age = (int)timeDifference.TotalDays;
+
             while (Values.hp < Values.maxhp)
             {
                 Values.hp += 5;
@@ -174,7 +177,7 @@ namespace TamersStats
             }
 
 
-            switch (Values.exp)
+            switch (Values.exp)//find simple math problem to increase exp needed per level
             {
                 case int x when (x < 99):
                     Values.lvl = 0;
@@ -223,7 +226,7 @@ namespace TamersStats
             else
             {
 
-            };
+            }
 
 
 
@@ -237,16 +240,14 @@ namespace TamersStats
 
             }
 
-
             if (Values.age == Values.maxAge)//restarts to egg
             {
-                Values.digiDeath = true;
+                //Values.digiDeath = true;
             }
             else
             {
 
             }
-
 
             
 
