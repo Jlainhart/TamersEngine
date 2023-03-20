@@ -103,7 +103,7 @@ namespace Value
         public static string mon { get; set; }
         [DataMember]
         public static DateTime timeStampBorn { get; set; }
-        public string[] badWords = { "ass", "butt" };
+        //public string[] badWords = { "ass", "butt" };
 
 
     }

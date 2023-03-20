@@ -21,7 +21,7 @@ namespace TamersEngine
     {
         static void Main()
         {
-            
+            Values data = new Values();
             Console.Clear();
             Console.WriteLine("\n1) Continue \n2) New Game \n3) Options");
             Console.Write("\nSelect an option: ");
@@ -29,11 +29,8 @@ namespace TamersEngine
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        Values.digiDeath = false;
                         Values data = LoadData("filename");
-                        Home(data);
-                    //Console.Clear();
-                        Main();                   
+                        Home(data);                   
                     break;
                     case "2":
                         NewGame();
@@ -77,20 +74,17 @@ namespace TamersEngine
                 Thread.Sleep(2000);
 
                 EggStats.StatPer();
-
-                Values data = new Values();
-
-
-                // begin main menu            
-                bool showMenu = true;
-                while (showMenu)
-                {
-                    showMenu = Home(data);
-                }
-
+              
             }
 
-            
+            // begin main menu            
+            bool showMenu = true;
+            while (showMenu)
+            {
+                showMenu = Home(data);
+            }
+
+
         }
 
 
