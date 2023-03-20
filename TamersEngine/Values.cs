@@ -15,9 +15,10 @@ using System.Xml;
 
 namespace Value
 {
-[DataContract]
+[Serializable]
     public class Values
     {
+
         [DataMember]
         public static string userName { get; set; }
         [DataMember]
@@ -100,7 +101,9 @@ namespace Value
         public static string species { get; set; }
         [DataMember]
         public static string mon { get; set; }
-        public string[] badWords = { "ass", "butt" };
+        [DataMember]
+        public static DateTime timeStampBorn { get; set; }
+        //public string[] badWords = { "ass", "butt" };
 
 
     }
