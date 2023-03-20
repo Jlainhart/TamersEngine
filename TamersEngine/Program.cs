@@ -19,21 +19,24 @@ namespace TamersEngine
 
     public class Engine
     {
+
+
         static void Main()
         {
             Values data = new Values();
+            Values values = new Values();
             Console.Clear();
             Console.WriteLine("\n1) Continue \n2) New Game \n3) Options");
             Console.Write("\nSelect an option: ");
 
-                switch (Console.ReadLine())
+            switch (Console.ReadLine())
                 {
                     case "1":
-                        Values data = LoadData("filename");
-                        Home(data);                   
+                        Values value = LoadData("filename");
+                        Home(data, values);                   
                     break;
                     case "2":
-                        NewGame();
+                        NewGame(values);
                     break;
                     case "3":
                     //Options();
@@ -46,19 +49,18 @@ namespace TamersEngine
                 }
             
 
-            static void NewGame()
+            static void NewGame(Values values)
             {
                 Console.Clear();
                 Console.WriteLine("Enter UserName:");
+                values.userName = Console.ReadLine();
 
-                Values.userName = Console.ReadLine();
-
-                while (Values.userName.Length < 3)
+                while (values.userName.Length < 3)
                 {
                     Console.Clear();
                     Console.WriteLine("UserName must be atleast 3 characters.");
                     Console.WriteLine("Enter UserName:");
-                    Values.userName = Console.ReadLine();
+                    values.userName = Console.ReadLine();
                 }
                 /*while (Values.userName.Equals(Values.badWords))
                 {
@@ -69,11 +71,11 @@ namespace TamersEngine
                 }*/
 
                 Console.Clear();
-                Console.WriteLine($"{Values.userName}, Iv been waiting for you.");
+                Console.WriteLine($"{values.userName}, Iv been waiting for you.");
 
                 Thread.Sleep(2000);
 
-                EggStats.StatPer();
+                EggStats.StatPer(values);
               
             }
 
@@ -81,7 +83,7 @@ namespace TamersEngine
             bool showMenu = true;
             while (showMenu)
             {
-                showMenu = Home(data);
+                showMenu = Home(data, values);
             }
 
 
@@ -89,25 +91,25 @@ namespace TamersEngine
 
 
 
-        public static bool Home(Values data)            
+        public static bool Home(Values data, Values values)            
         {
-            if (Values.digiDeath == false)
+            if (values.digiDeath == false)
             {
-                EggStats.Checkstat();
+                EggStats.Checkstat(values);
                 
             }
             
-            if (Values.digiDeath == true)
+            if (values.digiDeath == true)
             {
                 Images.Dead();
-                Console.WriteLine($"{Values.digiName} Has Degenerated back into a Digi Egg!.");
+                Console.WriteLine($"{values.digiName} Has Degenerated back into a Digi Egg!.");
                 Thread.Sleep(5000);
-                EggStats.StatPer();
+                EggStats.StatPer(values);
             }
            
 
             Console.Clear();
-            Console.WriteLine($"Level: {Values.lvl}  Health: {Values.hp}/ {Values.maxhp} \nMental: {Values.mp}/ {Values.maxmp} Energy: {Values.energy}");
+            Console.WriteLine($"Level: {values.lvl}  Health: {values.hp}/ {values.maxhp} \nMental: {values.mp}/ {values.maxmp} Energy: {values.energy}");
             //show mon image Values.mon
             Console.WriteLine("\n1) Train \n2) Feed \n3) Stats \n4) Save and Exit");
             Console.Write("\nSelect an option: ");            
@@ -115,13 +117,13 @@ namespace TamersEngine
             switch (Console.ReadLine())
             {
                 case "1":
-                    Train(data);
+                    Train(data, values);
                     return true;
                 case "2":
-                    Items(data);
+                    Items(data, values);
                     return true;
                 case "3":
-                    Stats(data);
+                    Stats(data, values);
                     return true;
                 case "4":
                     SaveData(data, "filename");
@@ -132,7 +134,7 @@ namespace TamersEngine
 
         }
 
-        static void Train(Values data)
+        static void Train(Values data, Values values)
         {
             Console.Clear();
             Console.WriteLine("Train");
@@ -150,65 +152,65 @@ namespace TamersEngine
                     {
                         case "1":
                             //start 30 min timer
-                            if (Values.energy < 5)
+                            if (values.energy < 5)
                             {
                                 Console.WriteLine("Not enough Energy!");
                                 
                             }
-                            else if (Values.fullness < 5)
+                            else if (values.fullness < 5)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.maxhp += 40;
-                                Values.maxmp -= 10;
-                                Values.fullness -= 5;
-                                Values.tired += 10;
-                                Values.energy -= 5;
-                                Values.exp += 5;
+                                values.maxhp += 40;
+                                values.maxmp -= 10;
+                                values.fullness -= 5;
+                                values.tired += 10;
+                                values.energy -= 5;
+                                values.exp += 5;
                                 Console.WriteLine("Health Increased by 40 and Mana Decreased by 10");
                               
                             }
                             break;
                         case "2":
                             //start 1 hour timer
-                            if (Values.energy < 10)
+                            if (values.energy < 10)
                             {
                                 Console.WriteLine("Not Enough Energy!");
                             }
-                            else if (Values.fullness < 10)
+                            else if (values.fullness < 10)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.maxhp += 80;
-                                Values.fullness -= 10;
-                                Values.tired += 20;
-                                Values.energy -= 10;
-                                Values.exp += 10;
+                                values.maxhp += 80;
+                                values.fullness -= 10;
+                                values.tired += 20;
+                                values.energy -= 10;
+                                values.exp += 10;
                                 Console.WriteLine("Health Increased by 80");
                             }
                             break;
                         case "3":
                             //start 2 hour timer
-                            if (Values.energy < 20)
+                            if (values.energy < 20)
                             {
                                 Console.WriteLine("Not Enough Energy!");
                             }
-                            else if (Values.fullness < 20)
+                            else if (values.fullness < 20)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.maxhp += 150;
-                                Values.maxmp += 70;
-                                Values.fullness -= 20;
-                                Values.tired += 40;
-                                Values.energy -= 20;
-                                Values.exp += 20;
+                                values.maxhp += 150;
+                                values.maxmp += 70;
+                                values.fullness -= 20;
+                                values.tired += 40;
+                                values.energy -= 20;
+                                values.exp += 20;
                                 Console.WriteLine("Health Increased by 150 and Mana Increased by 70");
                             }
                             break;
@@ -226,67 +228,67 @@ namespace TamersEngine
                     switch (Console.ReadLine())
                     {
                         case "1":
-                            if (Values.energy < 5)
+                            if (values.energy < 5)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 5)
+                            else if (values.fullness < 5)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
                                 //start 30 min timer
-                                Values.maxmp += 40;
-                                Values.maxhp -= 10;
-                                Values.fullness -= 5;
-                                Values.tired += 10;
-                                Values.energy -= 5;
-                                Values.exp += 5;
+                                values.maxmp += 40;
+                                values.maxhp -= 10;
+                                values.fullness -= 5;
+                                values.tired += 10;
+                                values.energy -= 5;
+                                values.exp += 5;
                                 Console.WriteLine("Mana Increased by 40 and Health Decreased by 10");
                             }
                             break;
                         case "2":
                             //start 1 hour timer
-                            if (Values.energy < 10)
+                            if (values.energy < 10)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 10)
+                            else if (values.fullness < 10)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.maxmp += 80;
-                                Values.fullness -= 10;
-                                Values.tired += 20;
-                                Values.energy -= 10;
-                                Values.exp += 10;
+                                values.maxmp += 80;
+                                values.fullness -= 10;
+                                values.tired += 20;
+                                values.energy -= 10;
+                                values.exp += 10;
                                 Console.WriteLine("Mana Increased by 80");
                             }
                             break;
                         case "3":
                             //start 2 hour timer
-                            if (Values.energy < 20)
+                            if (values.energy < 20)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 20)
+                            else if (values.fullness < 20)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.maxmp += 150;
-                                Values.maxhp += 70;
-                                Values.fullness -= 20;
-                                Values.tired += 40;
-                                Values.energy -= 20;
-                                Values.exp += 20;
+                                values.maxmp += 150;
+                                values.maxhp += 70;
+                                values.fullness -= 20;
+                                values.tired += 40;
+                                values.energy -= 20;
+                                values.exp += 20;
                                 Console.WriteLine("Mana Increased by 150 and Mana Increased by 70");
                             }
                             break;
@@ -305,66 +307,66 @@ namespace TamersEngine
                     {
                         case "1":
                             //start 30 min timer
-                            if (Values.energy < 5)
+                            if (values.energy < 5)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 5)
+                            else if (values.fullness < 5)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.atk += 4;
-                                Values.def -= 1;
-                                Values.fullness -= 5;
-                                Values.tired += 10;
-                                Values.energy -= 5;
-                                Values.exp += 5;
+                                values.atk += 4;
+                                values.def -= 1;
+                                values.fullness -= 5;
+                                values.tired += 10;
+                                values.energy -= 5;
+                                values.exp += 5;
                                 Console.WriteLine("Attack Increased by 4 and Defence Decreased by 1");
                             }
                             break;
                         case "2":
                             //start 1 hour timer
-                            if (Values.energy < 10)
+                            if (values.energy < 10)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 10)
+                            else if (values.fullness < 10)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.atk += 7;
-                                Values.fullness -= 10;
-                                Values.tired += 20;
-                                Values.energy -= 10;
-                                Values.exp += 10;
+                                values.atk += 7;
+                                values.fullness -= 10;
+                                values.tired += 20;
+                                values.energy -= 10;
+                                values.exp += 10;
                                 Console.WriteLine("Attack Increased by 7");
                             }
                             break;
                         case "3":
                             //start 2 hour timer
-                            if (Values.energy < 20)
+                            if (values.energy < 20)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 20)
+                            else if (values.fullness < 20)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.atk += 13;
-                                Values.def += 3;
-                                Values.fullness -= 20;
-                                Values.tired += 40;
-                                Values.energy -= 20;
-                                Values.exp += 20;
+                                values.atk += 13;
+                                values.def += 3;
+                                values.fullness -= 20;
+                                values.tired += 40;
+                                values.energy -= 20;
+                                values.exp += 20;
                                 Console.WriteLine("Attack Increased by 13 and Defence Increased by 3");
                             }
                             break;
@@ -383,66 +385,66 @@ namespace TamersEngine
                     {
                         case "1":
                             //start 30 min timer
-                            if (Values.energy < 5)
+                            if (values.energy < 5)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 5)
+                            else if (values.fullness < 5)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.def += 4;
-                                Values.atk -= 1;
-                                Values.fullness -= 5;
-                                Values.tired += 10;
-                                Values.energy -= 5;
-                                Values.exp += 5;
+                                values.def += 4;
+                                values.atk -= 1;
+                                values.fullness -= 5;
+                                values.tired += 10;
+                                values.energy -= 5;
+                                values.exp += 5;
                                 Console.WriteLine("Defence Increased by 4 and Attack Decreased by 1");
                             }
                             break;
                         case "2":
                             //start 1 hour timer
-                            if (Values.energy < 10)
+                            if (values.energy < 10)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 10)
+                            else if (values.fullness < 10)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.def += 7;
-                                Values.fullness -= 10;
-                                Values.tired += 20;
-                                Values.energy -= 10;
-                                Values.exp += 10;
+                                values.def += 7;
+                                values.fullness -= 10;
+                                values.tired += 20;
+                                values.energy -= 10;
+                                values.exp += 10;
                                 Console.WriteLine("Defence Increased by 7");
                             }
                             break;
                         case "3":
                             //start 2 hour timer
-                            if (Values.energy < 20)
+                            if (values.energy < 20)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 20)
+                            else if (values.fullness < 20)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.def += 13;
-                                Values.atk += 3;
-                                Values.fullness -= 20;
-                                Values.tired += 40;
-                                Values.energy -= 20;
-                                Values.exp += 20;
+                                values.def += 13;
+                                values.atk += 3;
+                                values.fullness -= 20;
+                                values.tired += 40;
+                                values.energy -= 20;
+                                values.exp += 20;
                                 Console.WriteLine("Defence Increased by 13 and Attack Increased by 3");
                             }
                             break;
@@ -460,66 +462,66 @@ namespace TamersEngine
                     {
                         case "1":
                             //start 30 min timer
-                            if (Values.energy < 5)
+                            if (values.energy < 5)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 5)
+                            else if (values.fullness < 5)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.spd += 4;
-                                Values.intel -= 1;
-                                Values.fullness -= 5;
-                                Values.tired += 10;
-                                Values.energy -= 5;
-                                Values.exp += 5;
+                                values.spd += 4;
+                                values.intel -= 1;
+                                values.fullness -= 5;
+                                values.tired += 10;
+                                values.energy -= 5;
+                                values.exp += 5;
                                 Console.WriteLine("Speed Increased by 4 and Intellagence Decreased by 1");
                             }
                             break;
                         case "2":
                             //start 1 hour timer
-                            if (Values.energy < 10)
+                            if (values.energy < 10)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 10)
+                            else if (values.fullness < 10)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.spd += 7;
-                                Values.fullness -= 10;
-                                Values.tired += 20;
-                                Values.energy -= 10;
-                                Values.exp += 10;
+                                values.spd += 7;
+                                values.fullness -= 10;
+                                values.tired += 20;
+                                values.energy -= 10;
+                                values.exp += 10;
                                 Console.WriteLine("Speed Increased by 7");
                             }
                             break;
                         case "3":
                             //start 2 hour timer
-                            if (Values.energy < 20)
+                            if (values.energy < 20)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 20)
+                            else if (values.fullness < 20)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.spd += 13;
-                                Values.intel += 3;
-                                Values.fullness -= 20;
-                                Values.tired += 40;
-                                Values.energy -= 20;
-                                Values.exp += 20;
+                                values.spd += 13;
+                                values.intel += 3;
+                                values.fullness -= 20;
+                                values.tired += 40;
+                                values.energy -= 20;
+                                values.exp += 20;
                                 Console.WriteLine("Speed Increased by 13 and Intellagence Increased by 3");
                             }
                             break;
@@ -539,66 +541,66 @@ namespace TamersEngine
                     {
                         case "1":
                             //start 30 min timer
-                            if (Values.energy < 5)
+                            if (values.energy < 5)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 5)
+                            else if (values.fullness < 5)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.intel += 4;
-                                Values.spd -= 1;
-                                Values.fullness -= 5;
-                                Values.tired += 10;
-                                Values.energy -= 5;
-                                Values.exp += 5;
+                                values.intel += 4;
+                                values.spd -= 1;
+                                values.fullness -= 5;
+                                values.tired += 10;
+                                values.energy -= 5;
+                                values.exp += 5;
                                 Console.WriteLine("Intellagence Increased by 4 and Speed Decreased by 1");
                             }
                             break;
                         case "2":
                             //start 1 hour timer
-                            if (Values.energy < 10)
+                            if (values.energy < 10)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 10)
+                            else if (values.fullness < 10)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.intel += 7;
-                                Values.fullness -= 10;
-                                Values.tired += 20;
-                                Values.energy -= 10;
-                                Values.exp += 10;
+                                values.intel += 7;
+                                values.fullness -= 10;
+                                values.tired += 20;
+                                values.energy -= 10;
+                                values.exp += 10;
                                 Console.WriteLine("Intellagence Increased by 7");
                             }
                             break;
                         case "3":
                             //start 2 hour timer
-                            if (Values.energy < 20)
+                            if (values.energy < 20)
                             {
                                 Console.WriteLine("Not Enough Energy!");
 
                             }
-                            else if (Values.fullness < 20)
+                            else if (values.fullness < 20)
                             {
                                 Console.WriteLine("Im too hungry!");
                             }
                             else
                             {
-                                Values.intel += 13;
-                                Values.spd += 3;
-                                Values.fullness -= 20;
-                                Values.tired += 40;
-                                Values.energy -= 20;
-                                Values.exp += 20;
+                                values.intel += 13;
+                                values.spd += 3;
+                                values.fullness -= 20;
+                                values.tired += 40;
+                                values.energy -= 20;
+                                values.exp += 20;
                                 Console.WriteLine("Intellagence Increased by 13 and Speed Increased by 3");
                             }
                             break;
@@ -610,7 +612,7 @@ namespace TamersEngine
                     break;
 
                 default:
-                    Train(data);
+                    Train(data, values);
                     break;
 
 
@@ -623,7 +625,7 @@ namespace TamersEngine
 
         }
 
-        static void Items(Values data)
+        static void Items(Values data, Values values)
         {
             Console.Clear();
             Console.WriteLine("Items");
@@ -640,16 +642,16 @@ namespace TamersEngine
                     switch (Console.ReadLine())
                     {
                         case "1":
-                            Item.Nugget();
+                            Item.Nugget(values);
                             break;
                         case "2":
-                            Item.Meat();
+                            Item.Meat(values);
                             break;
                         case "3":
-                            Item.LargeMeat();
+                            Item.LargeMeat(values);
                             break;
                         case "4":
-                            Item.Sirloin();
+                            Item.Sirloin(values);
                             break;
                         default:
                             return;
@@ -664,10 +666,10 @@ namespace TamersEngine
                     switch (Console.ReadLine())
                     {
                         case "1":
-                            Item.Pill();
+                            Item.Pill(values);
                             break;
                         case "2":
-                            Item.KillPill();
+                            Item.KillPill(values);
                             break;
                         default:
                             return;
@@ -693,17 +695,17 @@ namespace TamersEngine
 
         }
 
-        static void Stats(Values data)
+        static void Stats(Values data, Values values)
             {
                 Console.Clear();
                 Console.WriteLine("Stats");
 
-                Console.WriteLine($"UserName: {Values.userName}");
-                Console.WriteLine($"DigiName: {Values.digiName}");
-                Console.WriteLine($"\nDigi: {Values.digi}  \nAttack: {Values.atk}  Defense: {Values.def}  \n\nIntellagence: {Values.intel}  Speed: {Values.spd}" +
-                    $"\n\nType: {Values.type}  Attribute: {Values.attribute}  Species: {Values.species}  Personality: {Values.per} " +
-                    $"\n\nSickness: {Values.sick}  Experiance: {Values.exp}  Mood: {Values.mood}" +
-                    $"\n\nTired: {Values.tired}  Sleep: {Values.sleep}  Hunger: {Values.fullness}  Poop: {Values.poop}  Age: {Values.age}");
+                Console.WriteLine($"UserName: {values.userName}");
+                Console.WriteLine($"DigiName: {values.digiName}");
+                Console.WriteLine($"\nDigi: {values.digi}  \nAttack: {values.atk}  Defense: {values.def}  \n\nIntellagence: {values.intel}  Speed: {values.spd}" +
+                    $"\n\nType: {values.type}  Attribute: {values.attribute}  Species: {values.species}  Personality: {values.per} " +
+                    $"\n\nSickness: {values.sick}  Experiance: {values.exp}  Mood: {values.mood}" +
+                    $"\n\nTired: {values.tired}  Sleep: {values.sleep}  Hunger: {values.fullness}  Poop: {values.poop}  Age: {values.age}");
 
                 Console.WriteLine("\nPress Enter to return");
                 Console.ReadLine();
