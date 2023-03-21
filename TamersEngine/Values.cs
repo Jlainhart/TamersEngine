@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Collections;
-using System.Timers;
 using TamersStats;
 using TamersEngine;
-using Inventory;
-using Digis;
 using System.IO;
-using System.Runtime.Serialization;
-using System.Xml;
 using System.Xml.Serialization;
 
 namespace Value
@@ -19,10 +9,13 @@ namespace Value
 [Serializable]
     public class Values
     {
-        //cant get values to save, see line "105" test
-
-        public static string userName { get; set; }
+        //int and bool variables save as 0 and false
+        //strings do not save 
+        [XmlElement]
+        public string userName { get; set; }
+        [XmlElement]
         public string per { get; set; }
+        [XmlElement]
         public string digiName { get; set; }
         public bool digiDeath { get; set; }
         public int lvl { get; set; }
@@ -57,33 +50,37 @@ namespace Value
         public int age { get; set; }
         public int minAge { get; set; }
         public int maxAge { get; set; }
+        [XmlElement]
         public string digi { get; set; }
+        [XmlElement]
         public string type { get; set; }
+        [XmlElement]
         public string attribute { get; set; }
+        [XmlElement]
         public string species { get; set; }
+        [XmlElement]
         public string mon { get; set; }
         public DateTime timeStampBorn { get; set; }
-        public string test = "savetest"; //only value saving 
-        //public string[] badWords = { "ass", "butt" };
+
     }
     public static class ValueManager
     {
-        public static void SaveData(Values data, string filename)
+        public static void SaveData(Values values)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Values));
-            using (StreamWriter stream = new StreamWriter(filename))
-            {
-                serializer.Serialize(stream, data);
-            }
+                var serializer = new XmlSerializer(typeof(Values));
+                using (var writer = new StreamWriter("values.xml"))
+                {
+                    serializer.Serialize(writer, values);
+                }
         }
 
-        public static Values LoadData(string filename)
+        public static Values LoadData()
         {
             Values loadedValues;
-            XmlSerializer serializer = new XmlSerializer(typeof(Values));
-            using (StreamReader stream = new StreamReader(filename))
+            var serializer = new XmlSerializer(typeof(Values));
+            using (var reader = new StreamReader("values.xml"))
             {
-                loadedValues = (Values)serializer.Deserialize(stream);
+                loadedValues = (Values)serializer.Deserialize(reader);
             }
             return loadedValues;
         }
