@@ -13,34 +13,34 @@ namespace Inventory
 {
     class Item
     {
-        public static void Nugget()
+        public static void Nugget(Values values)
         {
-            Values.fullness += 3;
-            Values.poop += 3;
+            values.fullness += 3;
+            values.poop += 3;
         }
-        public static void Meat()
+        public static void Meat(Values values)
         {
-            Values.fullness += 5;
-            Values.poop += 5;
+            values.fullness += 5;
+            values.poop += 5;
         }
-        public static void LargeMeat()
+        public static void LargeMeat(Values values)
         {
-            Values.fullness += 15;
-            Values.poop += 15;
+            values.fullness += 15;
+            values.poop += 15;
         }
-        public static void Sirloin()
+        public static void Sirloin(Values values)
         {
-            Values.fullness += 35;
-            Values.poop += 35;
+            values.fullness += 35;
+            values.poop += 35;
         }
-        public static void Pill()
+        public static void Pill(Values values)
         {
-            Values.energy += 20;
-            Values.sick += 15;
+            values.energy += 20;
+            values.sick += 15;
         }
-        public static void KillPill()
+        public static void KillPill(Values values)
         {
-            Values.sick += 100;
+            values.sick += 100;
         }
         
     }

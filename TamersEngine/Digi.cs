@@ -15,44 +15,44 @@ namespace Digis
 {
 	public class Mons
 	{
-        public static void Botamon()
+        public static void Botamon(Values values)
         {
-            Values.digi = "Botamon";
-            Values.type = "Data";
-            Values.attribute = "Dark";
-            Values.species = "Demon";
-            Values.mon = "";
+            values.digi = "Botamon";
+            values.type = "Data";
+            values.attribute = "Dark";
+            values.species = "Demon";
+            values.mon = "";
             //Images.Baby();
         }
 
             
-        public static void Chibomon()
+        public static void Chibomon(Values values)
         {
-            Values.digi = "Chibomon";
-            Values.type = "Free";
-            Values.attribute = "Fire";
-            Values.species = "Dragon";
-            Values.mon = "";
+            values.digi = "Chibomon";
+            values.type = "Free";
+            values.attribute = "Fire";
+            values.species = "Dragon";
+            values.mon = "";
             //Images.Baby();
         }
         
-        public static void Jyarimon()
+        public static void Jyarimon(Values values)
         {
-            Values.digi = "Jyarimon";
-            Values.type = "Virus";
-            Values.attribute = "Fire";
-            Values.species = "Dragon";
-            Values.mon = "";
+            values.digi = "Jyarimon";
+            values.type = "Virus";
+            values.attribute = "Fire";
+            values.species = "Dragon";
+            values.mon = "";
             //Images.Baby();
         }
         
-        public static void Punimon()
+        public static void Punimon(Values values)
         {
-            Values.digi = "Punimon";
-            Values.type = "Data";
-            Values.attribute = "Neutral";
-            Values.species = "Beast";
-            Values.mon = "";
+            values.digi = "Punimon";
+            values.type = "Data";
+            values.attribute = "Neutral";
+            values.species = "Beast";
+            values.mon = "";
             //Images.Baby();
         }
 

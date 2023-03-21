@@ -14,199 +14,199 @@ namespace TamersStats
 {
     class EggStats
     {
-        public static void StatPer()
+        public static void StatPer(Values values)
         {
 
                 
-            Values.timeStampBorn = DateTime.Now;
+            values.timeStampBorn = DateTime.Now;
                 
             Console.Clear();
             Console.WriteLine("Enter Digimon Name:");
 
 
-            Values.digiName = Console.ReadLine();
-            while (Values.digiName.Length < 3)
+            values.digiName = Console.ReadLine();
+            while (values.digiName.Length < 3)
             {
                 Console.Clear();
                 Console.WriteLine("Digimon Name must be atleast 1 character.");
                 Console.WriteLine("Enter UserName:");
-                Values.digiName = Console.ReadLine();
+                values.digiName = Console.ReadLine();
             }
             Console.Clear();
 
             string[] personality = new string[] { "Durable", "Lively", "Fighter", "Defender", "Brainy", "Nimble" };
             Random rnd = new Random();
             int index = rnd.Next(personality.Length);
-            Values.per = personality[index];
+            values.per = personality[index];
 
             string[] Mon = new string[] { "Botamon", "Chibomon", "Jyarimon", "Punimon" };
             Random rand = new Random();
             int i = rnd.Next(Mon.Length);
-            Values.digi = Mon[i];
+            values.digi = Mon[i];
 
-            Values.lvl = 0;
-            Values.hp = 100;
-            Values.minhp = 0;
-            Values.maxhp = 100;
-            Values.mp = 100;
-            Values.minmp = 0;
-            Values.maxmp = 100;
-            Values.atk = 10;
-            Values.def = 10;
-            Values.intel = 10;
-            Values.spd = 10;
-            Values.energy = 50;
-            Values.minenergy = 0;
-            Values.maxenergy = 50;
+            values.lvl = 0;
+            values.hp = 100;
+            values.minhp = 0;
+            values.maxhp = 100;
+            values.mp = 100;
+            values.minmp = 0;
+            values.maxmp = 100;
+            values.atk = 10;
+            values.def = 10;
+            values.intel = 10;
+            values.spd = 10;
+            values.energy = 50;
+            values.minenergy = 0;
+            values.maxenergy = 50;
             // how much exploring or battles can be done before rest, sleep.
-            Values.sick = 0;
-            Values.minsick = 0;
-            Values.maxsick = 100;
+            values.sick = 0;
+            values.minsick = 0;
+            values.maxsick = 100;
             // how sick it is
-            Values.exp = 0;
-            Values.mood = 100;
+            values.exp = 0;
+            values.mood = 100;
             // - if hunger 0, poop 100, tired 50, vitality 100 or sleepy.
-            Values.tired = 0;
-            Values.mintired = 0;
-            Values.maxtired = 100;
-            Values.sleep = 000000;
+            values.tired = 0;
+            values.mintired = 0;
+            values.maxtired = 100;
+            values.sleep = 000000;
             // sleep at night?, removes tired, 3 hour day-3 hour night(pc)
             // digivice(phone) will be real time sync
-            Values.fullness = 100;
-            Values.minfullness = 0;
-            Values.maxfullness = 100;
+            values.fullness = 100;
+            values.minfullness = 0;
+            values.maxfullness = 100;
             // hunger -= 5 every 10 min
-            Values.poop = 0;
-            Values.minpoop = 0;
-            Values.maxpoop = 100;
-            Values.age = 0;
-            Values.minAge = 0;
-            Values.maxAge = 60;
+            values.poop = 0;
+            values.minpoop = 0;
+            values.maxpoop = 100;
+            values.age = 0;
+            values.minAge = 0;
+            values.maxAge = 60;
 
-            switch (Values.digi)
+            switch (values.digi)
             {
                 case "Botamon":
-                    Mons.Botamon();
+                    Mons.Botamon(values);
                     break;
                 case "Chibomon":
-                    Mons.Chibomon();
+                    Mons.Chibomon(values);
                     break;
                 case "Jyarimon":
-                    Mons.Jyarimon();
+                    Mons.Jyarimon(values);
                     break;
                 case "Punimon":
-                    Mons.Punimon();
+                    Mons.Punimon(values);
                     break;
             }
 
-            switch (Values.per)
+            switch (values.per)
             {
                 case "Durable":
-                    Values.maxhp += 50;
+                    values.maxhp += 50;
                     break;
                 case "Lively":
-                    Values.maxmp += 50;
+                    values.maxmp += 50;
                     break;
                 case "Fighter":
-                    Values.atk += 5;
+                    values.atk += 5;
                     break;
                 case "Defender":
-                    Values.def += 5;
+                    values.def += 5;
                     break;
                 case "Brainy":
-                    Values.intel += 5;
+                    values.intel += 5;
                     break;
                 case "Nimble":
-                    Values.spd += 5;
+                    values.spd += 5;
                     break;
             }
 
             //egg hatching
 
             Images.Egg();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Egg1();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Egg();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Egg2();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Egg();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Hatch();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Hatch1();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Hatch2();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
 
-            Values.digiDeath = false;
+            values.digiDeath = false;
         }
 
-            public static void Checkstat()
+            public static void Checkstat(Values values)
         {
             Console.Clear();
 
             DateTime currentTime = DateTime.Now;
-            TimeSpan timeDifference = currentTime - Values.timeStampBorn;
-            Values.age = (int)timeDifference.TotalDays;
+            TimeSpan timeDifference = currentTime - values.timeStampBorn;
+            values.age = (int)timeDifference.TotalDays;
 
-            while (Values.hp < Values.maxhp)
+            while (values.hp < values.maxhp)
             {
-                Values.hp += 5;
+                values.hp += 5;
                 //Thread.Sleep(10000);
             } 
             
 
-            while (Values.mp < Values.maxmp)
+            while (values.mp < values.maxmp)
             {
-                Values.mp += 5;
+                values.mp += 5;
                 //Thread.Sleep(10000);
             }
             
-            if (Values.sick == Values.maxsick)//restarts to egg
+            if (values.sick == values.maxsick)//restarts to egg
             {
-                Values.digiDeath = true;
+                values.digiDeath = true;
             }
 
 
-            switch (Values.exp)//find simple math problem to increase exp needed per level
+            switch (values.exp)//find simple math problem to increase exp needed per level
             {
                 case int x when (x < 99):
-                    Values.lvl = 0;
+                    values.lvl = 0;
                     break;
                 case int x when (x >= 100 && x <= 199):
-                    Values.lvl++;
+                    values.lvl++;
                     break;
                 case int x when (x <= 299 && x >= 200):
-                    Values.lvl += 2;
+                    values.lvl += 2;
                     break;
                 case int x when (x <= 399 && x >= 300):
-                    Values.lvl += 3;
+                    values.lvl += 3;
                     break;
                 case int x when (x < 499 && x >= 400):
-                    Values.lvl += 4;
+                    values.lvl += 4;
                     break;
                 case int x when (x < 599 && x >= 500):
-                    Values.lvl += 5;
+                    values.lvl += 5;
                     break;
             }
 
 
-            if (Values.tired >= 50)//half training points half energy
+            if (values.tired >= 50)//half training points half energy
             {
-                Values.energy = -25;
+                values.energy = -25;
             }
-            else if (Values.tired == 100)// no energy no training points
+            else if (values.tired == 100)// no energy no training points
             {
-                Values.energy = -50;
+                values.energy = -50;
             }
             else
             {
@@ -215,13 +215,13 @@ namespace TamersStats
 
 
             
-            if (Values.fullness <= 50)//display hungry image
+            if (values.fullness <= 50)//display hungry image
             {
 
             }
-            else if (Values.fullness == 0)// energy goes to 0
+            else if (values.fullness == 0)// energy goes to 0
             {
-                Values.energy = -50;
+                values.energy = -50;
             }
             else
             {
@@ -230,9 +230,9 @@ namespace TamersStats
 
 
 
-            if (Values.poop == 100)//display poop image
+            if (values.poop == 100)//display poop image
             {
-                Values.sick += 1;
+                values.sick += 1;
                 // every 5 min
             }
             else
@@ -240,7 +240,7 @@ namespace TamersStats
 
             }
 
-            if (Values.age == Values.maxAge)//restarts to egg
+            if (values.age == values.maxAge)//restarts to egg
             {
                 //Values.digiDeath = true;
             }
