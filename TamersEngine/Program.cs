@@ -13,7 +13,6 @@ namespace TamersEngine
         static void Main()
         {
             Values values = new Values();
-            Values data = new Values();
             Console.Clear();
             Console.WriteLine("\n1) Continue \n2) New Game \n3) Options");
             Console.Write("\nSelect an option: ");
@@ -21,9 +20,8 @@ namespace TamersEngine
             switch (Console.ReadLine())
                 {
                     case "1":
-                        ValueManager.LoadData("filename");
-                        values.digiDeath = false;
-                        Home(data, values);                   
+                        values = ValueManager.LoadData();
+                        Home(values);                   
                     break;
                     case "2":
                         NewGame(values);
@@ -42,14 +40,14 @@ namespace TamersEngine
             {
                 Console.Clear();
                 Console.WriteLine("Enter UserName:");
-                Values.userName = Console.ReadLine();
+                values.userName = Console.ReadLine();
 
-                while (Values.userName.Length < 3)
+                while (values.userName.Length < 3)
                 {
                     Console.Clear();
                     Console.WriteLine("UserName must be atleast 3 characters.");
                     Console.WriteLine("Enter UserName:");
-                    Values.userName = Console.ReadLine();
+                    values.userName = Console.ReadLine();
                 }
                 /*while (Values.userName.Equals(Values.badWords))
                 {
@@ -60,7 +58,7 @@ namespace TamersEngine
                 }*/
 
                 Console.Clear();
-                Console.WriteLine($"{Values.userName}, Iv been waiting for you.");
+                Console.WriteLine($"{values.userName}, Iv been waiting for you.");
 
                 Thread.Sleep(2000);
 
@@ -72,7 +70,7 @@ namespace TamersEngine
             bool showMenu = true;
             while (showMenu)
             {
-                showMenu = Home(data, values);
+                showMenu = Home(values);
             }
 
 
@@ -80,7 +78,7 @@ namespace TamersEngine
 
 
 
-        public static bool Home(Values data, Values values)            
+        public static bool Home(Values values)            
         {
             if (values.digiDeath == false)
             {
@@ -106,16 +104,16 @@ namespace TamersEngine
             switch (Console.ReadLine())
             {
                 case "1":
-                    Train(data, values);
+                    Train(values);
                     return true;
                 case "2":
-                    Items(data, values);
+                    Items(values);
                     return true;
                 case "3":
-                    Stats(data, values);
+                    Stats(values);
                     return true;
                 case "4":
-                    ValueManager.SaveData(data, "filename");
+                    ValueManager.SaveData(values);
                     return false;
                 default:
                     return true;
@@ -123,7 +121,7 @@ namespace TamersEngine
 
         }
 
-        static void Train(Values data, Values values)
+        static void Train(Values values)
         {
             Console.Clear();
             Console.WriteLine("Train");
@@ -601,7 +599,7 @@ namespace TamersEngine
                     break;
 
                 default:
-                    Train(data, values);
+                    Train(values);
                     break;
 
 
@@ -614,7 +612,7 @@ namespace TamersEngine
 
         }
 
-        static void Items(Values data, Values values)
+        static void Items(Values values)
         {
             Console.Clear();
             Console.WriteLine("Items");
@@ -684,12 +682,12 @@ namespace TamersEngine
 
         }
 
-        static void Stats(Values data, Values values)
+        static void Stats(Values values)
             {
                 Console.Clear();
                 Console.WriteLine("Stats");
 
-                Console.WriteLine($"UserName: {Values.userName}");
+                Console.WriteLine($"UserName: {values.userName}");
                 Console.WriteLine($"DigiName: {values.digiName}");
                 Console.WriteLine($"\nDigi: {values.digi}  \nAttack: {values.atk}  Defense: {values.def}  \n\nIntellagence: {values.intel}  Speed: {values.spd}" +
                     $"\n\nType: {values.type}  Attribute: {values.attribute}  Species: {values.species}  Personality: {values.per} " +

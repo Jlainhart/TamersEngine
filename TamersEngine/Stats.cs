@@ -6,7 +6,7 @@ using Digis;
 
 namespace TamersStats
 {
-    class EggStats
+    public class EggStats
     {
         public static void StatPer(Values values)
         {
