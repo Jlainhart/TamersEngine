@@ -124,28 +124,28 @@ namespace TamersStats
             //egg hatching
 
             Images.Egg();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Egg1();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Egg();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Egg2();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Egg();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Hatch();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Hatch1();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Images.Hatch2();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
 
             values.digiDeath = false;
         }

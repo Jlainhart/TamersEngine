@@ -12,99 +12,80 @@ using Digis;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace Value
 {
 [Serializable]
     public class Values
     {
-        [DataMember]
-        public string userName { get; set; }
-        [DataMember]
+        //cant get values to save, see line "105" test
+
+        public static string userName { get; set; }
         public string per { get; set; }
-        [DataMember]
         public string digiName { get; set; }
-        [DataMember]
         public bool digiDeath { get; set; }
-        [DataMember]
         public int lvl { get; set; }
-        [DataMember]
         public int hp { get; set; }
-        [DataMember]
         public int minhp { get; set; }
-        [DataMember]
         public int maxhp { get; set; }
-        [DataMember]
         public int mp { get; set; }
-        [DataMember]
         public int minmp { get; set; }
-        [DataMember]
         public int maxmp { get; set; }
-        [DataMember]
         public int atk { get; set; }
-        [DataMember]
         public int def { get; set; }
-        [DataMember]
         public int intel { get; set; }
-        [DataMember]
         public int spd { get; set; }
-        [DataMember]
         public int energy { get; set; }
-        [DataMember]
         public int minenergy { get; set; }
-        [DataMember]
         public int maxenergy { get; set; }
-        [DataMember]
         public int sick { get; set; }
-        [DataMember]
         public int minsick { get; set; }
-        [DataMember]
         public int maxsick { get; set; }
-        [DataMember]
         public int exp { get; set; }
-        [DataMember]
         public int mood { get; set; }
-        [DataMember]
         public int tired { get; set; }
-        [DataMember]
         public int mintired { get; set; }
-        [DataMember]
         public int maxtired { get; set; }
-        [DataMember]
         public int sleep { get; set; }
-        [DataMember]
         public int fullness { get; set; }
-        [DataMember]
         public int minfullness { get; set; }
-        [DataMember]
         public int maxfullness { get; set; }
-        [DataMember]
         public int poop { get; set; }
-        [DataMember]
         public int minpoop { get; set; }
-        [DataMember]
         public int maxpoop { get; set; }
-        [DataMember]
         public int age { get; set; }
-        [DataMember]
         public int minAge { get; set; }
-        [DataMember]
         public int maxAge { get; set; }
-        [DataMember]
         public string digi { get; set; }
-        [DataMember]
         public string type { get; set; }
-        [DataMember]
         public string attribute { get; set; }
-        [DataMember]
         public string species { get; set; }
-        [DataMember]
         public string mon { get; set; }
-        [DataMember]
         public DateTime timeStampBorn { get; set; }
-        public string test = "savetest";
+        public string test = "savetest"; //only value saving 
         //public string[] badWords = { "ass", "butt" };
+    }
+    public static class ValueManager
+    {
+        public static void SaveData(Values data, string filename)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Values));
+            using (StreamWriter stream = new StreamWriter(filename))
+            {
+                serializer.Serialize(stream, data);
+            }
+        }
 
-
+        public static Values LoadData(string filename)
+        {
+            Values loadedValues;
+            XmlSerializer serializer = new XmlSerializer(typeof(Values));
+            using (StreamReader stream = new StreamReader(filename))
+            {
+                loadedValues = (Values)serializer.Deserialize(stream);
+            }
+            return loadedValues;
+        }
     }
 }

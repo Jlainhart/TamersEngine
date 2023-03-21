@@ -11,7 +11,7 @@ using Inventory;
 using Digis;
 using System.IO;
 using System.Runtime.Serialization;
-using System.Xml;
+using System.Xml.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace TamersEngine
@@ -19,12 +19,10 @@ namespace TamersEngine
 
     public class Engine
     {
-
-
         static void Main()
         {
+            Values values = new Values();3
             Values data = new Values();
-            Values values = new Values();
             Console.Clear();
             Console.WriteLine("\n1) Continue \n2) New Game \n3) Options");
             Console.Write("\nSelect an option: ");
@@ -32,15 +30,15 @@ namespace TamersEngine
             switch (Console.ReadLine())
                 {
                     case "1":
-                        Values value = LoadData("filename");
+                        ValueManager.LoadData("filename");
+                        values.digiDeath = false;
                         Home(data, values);                   
                     break;
                     case "2":
                         NewGame(values);
                     break;
                     case "3":
-                    //Options();
-                    //Console.Clear();
+                        //Options();
                         Main();
                     break;
                     default:
@@ -53,14 +51,14 @@ namespace TamersEngine
             {
                 Console.Clear();
                 Console.WriteLine("Enter UserName:");
-                values.userName = Console.ReadLine();
+                Values.userName = Console.ReadLine();
 
-                while (values.userName.Length < 3)
+                while (Values.userName.Length < 3)
                 {
                     Console.Clear();
                     Console.WriteLine("UserName must be atleast 3 characters.");
                     Console.WriteLine("Enter UserName:");
-                    values.userName = Console.ReadLine();
+                    Values.userName = Console.ReadLine();
                 }
                 /*while (Values.userName.Equals(Values.badWords))
                 {
@@ -71,7 +69,7 @@ namespace TamersEngine
                 }*/
 
                 Console.Clear();
-                Console.WriteLine($"{values.userName}, Iv been waiting for you.");
+                Console.WriteLine($"{Values.userName}, Iv been waiting for you.");
 
                 Thread.Sleep(2000);
 
@@ -126,7 +124,7 @@ namespace TamersEngine
                     Stats(data, values);
                     return true;
                 case "4":
-                    SaveData(data, "filename");
+                    ValueManager.SaveData(data, "filename");
                     return false;
                 default:
                     return true;
@@ -700,7 +698,7 @@ namespace TamersEngine
                 Console.Clear();
                 Console.WriteLine("Stats");
 
-                Console.WriteLine($"UserName: {values.userName}");
+                Console.WriteLine($"UserName: {Values.userName}");
                 Console.WriteLine($"DigiName: {values.digiName}");
                 Console.WriteLine($"\nDigi: {values.digi}  \nAttack: {values.atk}  Defense: {values.def}  \n\nIntellagence: {values.intel}  Speed: {values.spd}" +
                     $"\n\nType: {values.type}  Attribute: {values.attribute}  Species: {values.species}  Personality: {values.per} " +
@@ -712,24 +710,7 @@ namespace TamersEngine
 
         }
 
-        public static void SaveData(Values data, string filename)
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream stream = new FileStream(filename, FileMode.Create))
-            {
-                formatter.Serialize(stream, data);
-            }
-        }
-
-        public static Values LoadData(string filename)
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream stream = new FileStream(filename, FileMode.Open))
-            {
-                Values data = (Values)formatter.Deserialize(stream);
-                return data;
-            }
-        }
+  
     }
 }
     
