@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Collections;
-using System.Timers;
 using TamersStats;
 using TamersEngine;
-using Inventory;
-using Digis;
 using System.IO;
-using System.Runtime.Serialization;
-using System.Xml;
 using System.Xml.Serialization;
 
 namespace Value
@@ -19,8 +9,8 @@ namespace Value
 [Serializable]
     public class Values
     {
-        //cant get values to save, see line "105" test
-
+        //int and bool variables save as 0 and false
+        //strings do not save 
         public static string userName { get; set; }
         public string per { get; set; }
         public string digiName { get; set; }
@@ -63,8 +53,7 @@ namespace Value
         public string species { get; set; }
         public string mon { get; set; }
         public DateTime timeStampBorn { get; set; }
-        public string test = "savetest"; //only value saving 
-        //public string[] badWords = { "ass", "butt" };
+
     }
     public static class ValueManager
     {

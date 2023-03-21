@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Collections;
-using System.Timers;
 using TamersStats;
 using Value;
 using Inventory;
-using Digis;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace TamersEngine
 {
@@ -21,7 +12,7 @@ namespace TamersEngine
     {
         static void Main()
         {
-            Values values = new Values();3
+            Values values = new Values();
             Values data = new Values();
             Console.Clear();
             Console.WriteLine("\n1) Continue \n2) New Game \n3) Options");
@@ -93,7 +84,7 @@ namespace TamersEngine
         {
             if (values.digiDeath == false)
             {
-                EggStats.Checkstat(values);
+                StatCheck.Checkstat(values);
                 
             }
             
