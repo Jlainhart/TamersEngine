@@ -36,6 +36,8 @@ namespace Value
         public int minsick { get; set; }
         public int maxsick { get; set; }
         public int exp { get; set; }
+        public int totalExp { get; set; }
+        public int expNeed { get; set; }
         public int mood { get; set; }
         public int tired { get; set; }
         public int mintired { get; set; }

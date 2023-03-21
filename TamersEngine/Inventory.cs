@@ -32,9 +32,9 @@ namespace Inventory
             values.energy += 20;
             values.sick += 15;
         }
-        public static void KillPill(Values values)
+        public static void Vaccine(Values values)
         {
-            values.sick += 100;
+            values.sick += 25;
         }
         
     }

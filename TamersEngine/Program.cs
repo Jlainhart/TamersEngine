@@ -82,15 +82,14 @@ namespace TamersEngine
         {
             if (values.digiDeath == false)
             {
-                StatCheck.Checkstat(values);
-                
+                StatCheck.Checkstat(values);                
             }
             
             if (values.digiDeath == true)
             {
                 Images.Dead();
                 Console.WriteLine($"{values.digiName} Has Degenerated back into a Digi Egg!.");
-                Thread.Sleep(5000);
+                Thread.Sleep(3000);
                 EggStats.StatPer(values);
             }
            
@@ -647,7 +646,7 @@ namespace TamersEngine
 
                 case "2":
                     Console.Clear();
-                    Console.WriteLine("\n1) Pill 2) KillPill");
+                    Console.WriteLine("\n1) Pill 2) Vaccine");
                     Console.Write("\nSelect an option: ");
 
                     switch (Console.ReadLine())
@@ -656,7 +655,7 @@ namespace TamersEngine
                             Item.Pill(values);
                             break;
                         case "2":
-                            Item.KillPill(values);
+                            Item.Vaccine(values);
                             break;
                         default:
                             return;
@@ -691,7 +690,7 @@ namespace TamersEngine
                 Console.WriteLine($"DigiName: {values.digiName}");
                 Console.WriteLine($"\nDigi: {values.digi}  \nAttack: {values.atk}  Defense: {values.def}  \n\nIntellagence: {values.intel}  Speed: {values.spd}" +
                     $"\n\nType: {values.type}  Attribute: {values.attribute}  Species: {values.species}  Personality: {values.per} " +
-                    $"\n\nSickness: {values.sick}  Experiance: {values.exp}  Mood: {values.mood}" +
+                    $"\n\nSickness: {values.sick}  Experiance: {values.exp}  TotalExp: {values.totalExp}  Mood: {values.mood}" +
                     $"\n\nTired: {values.tired}  Sleep: {values.sleep}  Hunger: {values.fullness}  Poop: {values.poop}  Age: {values.age}");
 
                 Console.WriteLine("\nPress Enter to return");

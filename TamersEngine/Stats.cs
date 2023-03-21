@@ -3,6 +3,7 @@ using System.Threading;
 using TamersEngine;
 using Value;
 using Digis;
+using System.Reflection.Emit;
 
 namespace TamersStats
 {
@@ -57,7 +58,9 @@ namespace TamersStats
             values.minsick = 0;
             values.maxsick = 100;
             // how sick it is
-            values.exp = 0;
+            values.exp = 80;
+            values.expNeed = 100;
+            values.totalExp = 0;
             values.mood = 100;
             // - if hunger 0, poop 100, tired 50, vitality 100 or sleepy.
             values.tired = 0;
@@ -159,6 +162,11 @@ namespace TamersStats
                     values.hp += 5;
                     //Thread.Sleep(10000);
                 }
+                while (values.hp > values.maxhp)
+                {
+                    values.hp -= 10;
+                    //Thread.Sleep(10000);
+                }
 
 
                 while (values.mp < values.maxmp)
@@ -166,37 +174,26 @@ namespace TamersStats
                     values.mp += 5;
                     //Thread.Sleep(10000);
                 }
+                while (values.mp > values.maxmp)
+                {
+                    values.mp -= 10;
+                    //Thread.Sleep(10000);
+                }
 
-                if (values.sick == values.maxsick)//restarts to egg
+            if (values.sick == values.maxsick)//restarts to egg
                 {
                     values.digiDeath = true;
                 }
 
-
-                switch (values.exp)//find simple math problem to increase exp needed per level
-                {
-                    case int x when (x < 99):
-                        values.lvl = 0;
-                        break;
-                    case int x when (x >= 100 && x <= 199):
-                        values.lvl++;
-                        break;
-                    case int x when (x <= 299 && x >= 200):
-                        values.lvl += 2;
-                        break;
-                    case int x when (x <= 399 && x >= 300):
-                        values.lvl += 3;
-                        break;
-                    case int x when (x < 499 && x >= 400):
-                        values.lvl += 4;
-                        break;
-                    case int x when (x < 599 && x >= 500):
-                        values.lvl += 5;
-                        break;
-                }
-
-
-                if (values.tired >= 50)//half training points half energy
+            if (values.exp >= values.expNeed)
+            {
+                    values.lvl++;
+                    values.totalExp += values.exp;
+                    values.exp = 0;
+                    values.expNeed = Convert.ToInt32(values.expNeed * 1.7);
+            }
+           
+            if (values.tired >= 50)//half training points half energy
                 {
                     values.energy = -25;
                 }
@@ -245,7 +242,23 @@ namespace TamersStats
 
                 }
 
+            //check stats of digimon to find what is needed to digivolve
+            switch (values.digi)
+            {
+                case "Botamon":
+                    Mons.Botamon(values);
+                    break;
+                case "Chibomon":
+                    Mons.Chibomon(values);
+                    break;
+                case "Jyarimon":
+                    Mons.Jyarimon(values);
+                    break;
+                case "Punimon":
+                    Mons.Punimon(values);
+                    break;
             }
+        }
 
         }
     }
